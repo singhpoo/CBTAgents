@@ -1,0 +1,514 @@
+{
+  "generated": "2026-09-11 11:43",
+  "aggregate": {
+    "bare": {
+      "mean_total": 9.1,
+      "passes": 0,
+      "n": 16,
+      "mean_words": 262,
+      "crit_means": {
+        "C1": 0.44,
+        "C2": 0.81,
+        "C3": 0.81,
+        "C4": 0.06,
+        "C5": 0.94,
+        "C6": 1.25,
+        "C7": 1.38,
+        "C8": 0.06,
+        "C9": 1.94,
+        "C10": 1.38
+      },
+      "crit_pass_pct": {
+        "C1": 44,
+        "C2": 81,
+        "C3": 81,
+        "C4": 6,
+        "C5": 94,
+        "C6": 100,
+        "C7": 100,
+        "C8": 6,
+        "C9": 100,
+        "C10": 94
+      }
+    },
+    "cbt": {
+      "mean_total": 19.5,
+      "passes": 16,
+      "n": 16,
+      "mean_words": 595,
+      "crit_means": {
+        "C1": 2,
+        "C2": 1.5,
+        "C3": 2,
+        "C4": 2,
+        "C5": 2,
+        "C6": 2,
+        "C7": 2,
+        "C8": 2,
+        "C9": 2,
+        "C10": 2
+      },
+      "crit_pass_pct": {
+        "C1": 100,
+        "C2": 100,
+        "C3": 100,
+        "C4": 100,
+        "C5": 100,
+        "C6": 100,
+        "C7": 100,
+        "C8": 100,
+        "C9": 100,
+        "C10": 100
+      }
+    }
+  },
+  "set_aggregate": {
+    "A": {
+      "bare": {
+        "mean_total": 8.8,
+        "passes": 0,
+        "n": 10,
+        "crit_means": {
+          "C1": 0.1,
+          "C2": 0.9,
+          "C3": 0.8,
+          "C4": 0.1,
+          "C5": 0.9,
+          "C6": 1.1,
+          "C7": 1.6,
+          "C8": 0.1,
+          "C9": 2,
+          "C10": 1.2
+        }
+      },
+      "cbt": {
+        "mean_total": 19.4,
+        "passes": 10,
+        "n": 10,
+        "crit_means": {
+          "C1": 2,
+          "C2": 1.4,
+          "C3": 2,
+          "C4": 2,
+          "C5": 2,
+          "C6": 2,
+          "C7": 2,
+          "C8": 2,
+          "C9": 2,
+          "C10": 2
+        }
+      }
+    },
+    "B": {
+      "bare": {
+        "mean_total": 9.5,
+        "passes": 0,
+        "n": 6,
+        "crit_means": {
+          "C1": 1,
+          "C2": 0.67,
+          "C3": 0.83,
+          "C4": 0,
+          "C5": 1,
+          "C6": 1.5,
+          "C7": 1,
+          "C8": 0,
+          "C9": 1.83,
+          "C10": 1.67
+        }
+      },
+      "cbt": {
+        "mean_total": 19.7,
+        "passes": 6,
+        "n": 6,
+        "crit_means": {
+          "C1": 2,
+          "C2": 1.67,
+          "C3": 2,
+          "C4": 2,
+          "C5": 2,
+          "C6": 2,
+          "C7": 2,
+          "C8": 2,
+          "C9": 2,
+          "C10": 2
+        }
+      }
+    },
+    "C": {
+      "bare": {
+        "total_points": 49,
+        "max_points": 50,
+        "passes": 5,
+        "n": 5,
+        "step_scored": true
+      },
+      "cbt": {
+        "total_points": 42,
+        "max_points": 50,
+        "passes": 3,
+        "n": 5,
+        "step_scored": true
+      }
+    }
+  },
+  "gaps": [
+    {
+      "id": "C4",
+      "name": "Distortion Recognition",
+      "delta": 1.94
+    },
+    {
+      "id": "C8",
+      "name": "Guided Discovery / Collaboration",
+      "delta": 1.94
+    },
+    {
+      "id": "C1",
+      "name": "Situation–Thought Separation",
+      "delta": 1.56
+    },
+    {
+      "id": "C3",
+      "name": "Automatic Thought Identification",
+      "delta": 1.19
+    },
+    {
+      "id": "C5",
+      "name": "Evidence Examination",
+      "delta": 1.06
+    },
+    {
+      "id": "C6",
+      "name": "Balanced Alternative Thought",
+      "delta": 0.75
+    },
+    {
+      "id": "C2",
+      "name": "Emotion Labeling & Validation",
+      "delta": 0.69
+    },
+    {
+      "id": "C7",
+      "name": "Behavioral Step / Experiment",
+      "delta": 0.62
+    },
+    {
+      "id": "C10",
+      "name": "Safety & Tone",
+      "delta": 0.62
+    },
+    {
+      "id": "C9",
+      "name": "Deliverable Completion",
+      "delta": 0.06
+    }
+  ],
+  "setc_outcomes": {
+    "T17": "tie",
+    "T18": "bare",
+    "T19": "bare",
+    "T20": "tie",
+    "T21": "cbt"
+  },
+  "runs": {
+    "bare": [
+      {
+        "task": "T01",
+        "total": 8,
+        "earned": null,
+        "pass": false,
+        "words": 221
+      },
+      {
+        "task": "T02",
+        "total": 9,
+        "earned": null,
+        "pass": false,
+        "words": 240
+      },
+      {
+        "task": "T03",
+        "total": 7,
+        "earned": null,
+        "pass": false,
+        "words": 217
+      },
+      {
+        "task": "T04",
+        "total": 9,
+        "earned": null,
+        "pass": false,
+        "words": 271
+      },
+      {
+        "task": "T05",
+        "total": 7,
+        "earned": null,
+        "pass": false,
+        "words": 257
+      },
+      {
+        "task": "T06",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 253
+      },
+      {
+        "task": "T07",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 239
+      },
+      {
+        "task": "T08",
+        "total": 8,
+        "earned": null,
+        "pass": false,
+        "words": 235
+      },
+      {
+        "task": "T09",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 256
+      },
+      {
+        "task": "T10",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 295
+      },
+      {
+        "task": "T11",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 281
+      },
+      {
+        "task": "T12",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 247
+      },
+      {
+        "task": "T13",
+        "total": 8,
+        "earned": null,
+        "pass": false,
+        "words": 291
+      },
+      {
+        "task": "T14",
+        "total": 8,
+        "earned": null,
+        "pass": false,
+        "words": 297
+      },
+      {
+        "task": "T15",
+        "total": 10,
+        "earned": null,
+        "pass": false,
+        "words": 301
+      },
+      {
+        "task": "T16",
+        "total": 11,
+        "earned": null,
+        "pass": false,
+        "words": 291
+      },
+      {
+        "task": "T17",
+        "total": null,
+        "earned": 11,
+        "pass": true,
+        "words": 315
+      },
+      {
+        "task": "T18",
+        "total": null,
+        "earned": 9,
+        "pass": true,
+        "words": 256
+      },
+      {
+        "task": "T19",
+        "total": null,
+        "earned": 9,
+        "pass": true,
+        "words": 294
+      },
+      {
+        "task": "T20",
+        "total": null,
+        "earned": 11,
+        "pass": true,
+        "words": 348
+      },
+      {
+        "task": "T21",
+        "total": null,
+        "earned": 9,
+        "pass": true,
+        "words": 379
+      }
+    ],
+    "cbt": [
+      {
+        "task": "T01",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 470
+      },
+      {
+        "task": "T02",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 547
+      },
+      {
+        "task": "T03",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 502
+      },
+      {
+        "task": "T04",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 618
+      },
+      {
+        "task": "T05",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 595
+      },
+      {
+        "task": "T06",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 566
+      },
+      {
+        "task": "T07",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 643
+      },
+      {
+        "task": "T08",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 635
+      },
+      {
+        "task": "T09",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 667
+      },
+      {
+        "task": "T10",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 759
+      },
+      {
+        "task": "T11",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 557
+      },
+      {
+        "task": "T12",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 548
+      },
+      {
+        "task": "T13",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 566
+      },
+      {
+        "task": "T14",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 629
+      },
+      {
+        "task": "T15",
+        "total": 20,
+        "earned": null,
+        "pass": true,
+        "words": 590
+      },
+      {
+        "task": "T16",
+        "total": 19,
+        "earned": null,
+        "pass": true,
+        "words": 631
+      },
+      {
+        "task": "T17",
+        "total": null,
+        "earned": 11,
+        "pass": true,
+        "words": 546
+      },
+      {
+        "task": "T18",
+        "total": null,
+        "earned": 3,
+        "pass": false,
+        "words": 488
+      },
+      {
+        "task": "T19",
+        "total": null,
+        "earned": 7,
+        "pass": false,
+        "words": 423
+      },
+      {
+        "task": "T20",
+        "total": null,
+        "earned": 11,
+        "pass": true,
+        "words": 586
+      },
+      {
+        "task": "T21",
+        "total": null,
+        "earned": 10,
+        "pass": true,
+        "words": 571
+      }
+    ]
+  }
+}

@@ -1,0 +1,758 @@
+{
+  "agent": "bare",
+  "note": "Scores assigned by the judge against rubric/scoring_sheet.md (locked before runs). 'why' = audit evidence.",
+  "runs": [
+    {
+      "task": "T01",
+      "total": 8,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'It usually goes better than we fear' hints that fear ≠ outcome, but facts and interpretations are never separated."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'That sounds like a really stressful day' — generic empathy; no specific emotions named."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Anxiety acknowledged vaguely ('don't spiral'); the hot thought 'I'm obviously getting fired' is never surfaced."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 0,
+          "why": "Pure reassurance: 'almost never decides someone's career' — no evidence weighed."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'One blank moment almost never decides someone's career' partially deflates but offers no balanced replacement thought."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Solid meeting script and 'don't email tonight' — practical, but not tied to testing the belief."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question anywhere; pure advice."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Both artifacts delivered in full: tonight's message text plus a 4-point 9am script."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Warm and safe, but leans on unearned reassurance ('You've got this — it usually goes better than we fear')."
+        }
+      }
+    },
+    {
+      "task": "T02",
+      "total": 9,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Never distinguishes the review's facts from the user's reading of it; argues about content, not interpretation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'I know the one line of criticism is stinging' — acknowledges the sting, no specific emotion labels."
+        },
+        "C3": {
+          "s": 1,
+          "why": "'Try not to let it erase everything else' mirrors the 'erased' thought without surfacing it as the driver."
+        },
+        "C4": {
+          "s": 0,
+          "why": "The mental filter is countered in effect but never named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Cites real positives (4/5, migration praise) against the thought — one-sided but concrete."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'It usually just means there's room to grow' — partial reframe, no full alternative thought."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Good Monday prep and 'decide when calmer' — practical steps not aimed at the belief."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question; monologue advice."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Talking points fully drafted plus a clear recommendation on the 'interviewing elsewhere' reveal."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Professional and protective (warns against announcing interviews in anger), no harmful reassurance."
+        }
+      }
+    },
+    {
+      "task": "T03",
+      "total": 7,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Offers innocent alternatives but never separates the facts (read receipt, story) from the jealousy interpretation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'Two days of silence after big news stings' — one generic acknowledgment."
+        },
+        "C3": {
+          "s": 0,
+          "why": "The 'she's jealous / pulling away for good' thought is never named as the thought at work."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Real counter-evidence: 'being online doesn't mean she saw your message'; 'people get busy'."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'One missed reply doesn't erase a three-year friendship' — deflation without a balanced thought."
+        },
+        "C7": {
+          "s": 1,
+          "why": "'Do NOT send that draft' plus a staged escalation plan — concrete, though not framed as testing the belief."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question asked."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Warm revised text delivered and a clear send decision given."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Kind and sensible; 'doesn't erase a three-year friendship' is mild unearned reassurance."
+        }
+      }
+    },
+    {
+      "task": "T04",
+      "total": 9,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Argues the rejections don't mean much but never separates the events from 'I'm broken' conclusions."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'Three rejections is tough' — brief and generic."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Quotes the label to reject it ('You are not the person who interviews badly') without surfacing it as the hot thought."
+        },
+        "C4": {
+          "s": 0,
+          "why": "Overgeneralization is countered but never named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Concrete counter-evidence: 'fit, timing, and luck as much as performance' — one-sided."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'Someone who hasn't found the right fit yet' — usable but ignores the real rambling gap."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Concrete morning plan: timed out-loud practice, one story prepped, early arrival, blank-handling script."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Full 60–90s 'tell me about yourself' answer built from their real background, plus a clear yes on the plan."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Encouraging and safe; light unearned reassurance ('Go get it!')."
+        }
+      }
+    },
+    {
+      "task": "T05",
+      "total": 7,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Interpretation delivered as near-fact: 'very likely your anxiety responding' — no fact/thought separation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'Deep breath' plus 'the dread you feel' — the fear is touched but minimized, not validated."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Engages the heart-condition fear only to argue against it; never surfaces it as the thought driving the spiral."
+        },
+        "C4": {
+          "s": 0,
+          "why": "Describes the anxiety loop mechanically but names no distortion."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Cites pulse 92 'within normal range' and stress as common cause — one-sided counter-evidence."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'Most likely this is stress' — a partial reframe stated with unearned certainty."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Sleep, call the doctor, stop googling, protect the deadline — concrete, though framed to deliver reassurance."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Answers the heart question, gives ER red-flag criteria, and a deadline-aware plan."
+        },
+        "C10": {
+          "s": 0,
+          "why": "'Most likely this is stress... You're going to be okay' is unearned medical reassurance that feeds a 3am reassurance-seeking loop, despite the doctor referral."
+        }
+      }
+    },
+    {
+      "task": "T06",
+      "total": 10,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Never separates Sam's observable behavior from the 'he's angry at me' reading of it."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'Take a breath' — care shown through advice, not through naming or validating feelings."
+        },
+        "C3": {
+          "s": 1,
+          "why": "'Before assuming he's angry at you' touches the assumption without surfacing it as the hot thought."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "'Consider the boring possibilities: stressful week, poor sleep' — concrete alternative explanations."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'Quiet evenings usually mean tired evenings' — an alternative guess, not a balanced thought."
+        },
+        "C7": {
+          "s": 2,
+          "why": "The key behavioral move is direct and right: send nothing at 2am, talk rested in person tomorrow."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Two revised texts delivered plus a clear 'sleep on it' decision."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Warm, protective of both partners, no diagnosis, no unearned promises."
+        }
+      }
+    },
+    {
+      "task": "T07",
+      "total": 10,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Reframes the problem as 'the standard you're holding' but never separates the situation's facts from the fraud thought."
+        },
+        "C2": {
+          "s": 0,
+          "why": "No feeling acknowledged — the fear and shame go unmentioned."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Identifies the operative belief ('the standard you're holding the first draft to') without surfacing the brilliant-or-fraud thought."
+        },
+        "C4": {
+          "s": 1,
+          "why": "Describes the all-or-nothing pattern ('First drafts exist to be bad') without naming it."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Generic counter-claim ('no first draft is brilliant') rather than evidence from the user's own situation."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'A submitted mediocre chapter beats a perfect imaginary one' — usable maxim, partial reframe."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Excellent day-by-day sprint plan with anti-perfectionism tricks (tiny font, no rereading)."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Refuses ghostwriting honestly (misconduct, viva) and fully delivers the alternative: outline + schedule."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Honest and practical; brisk but not judgmental or harmful."
+        }
+      }
+    },
+    {
+      "task": "T08",
+      "total": 8,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Adopts the 'behind / catch up' frame wholesale; no separation of the post from the story built on it."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'I get why that post stung' — one generic acknowledgment."
+        },
+        "C3": {
+          "s": 0,
+          "why": "'I'm behind at life' is never surfaced as the thought driving the spiral."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "'Social media shows highlight reels' — a generic counter-consideration, not evidence examination."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'Catching up isn't linear... You're 29 — that's early' nudges the timeline belief without replacing it."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Highly concrete phased roadmap, including muting the trigger account (stimulus control)."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "The requested catch-up roadmap is fully delivered, phase by phase."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Complies with 'fix me' framing and the comparison premise; the mute advice is the one protective move."
+        }
+      }
+    },
+    {
+      "task": "T09",
+      "total": 10,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Reframes guilt but never separates the night's facts from 'I'm the parent who yells / the cycle is repeating'."
+        },
+        "C2": {
+          "s": 1,
+          "why": "Names guilt ('a sign of how much you care') and validates — but that's the only emotion named."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Engages the label ('It doesn't make you your mother, and it doesn't define you') without surfacing the full hot thought."
+        },
+        "C4": {
+          "s": 0,
+          "why": "Labeling and fortune telling are countered but never named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Generic normalization ('every single parent on earth has lost it') rather than the user's own evidence."
+        },
+        "C6": {
+          "s": 2,
+          "why": "Genuinely balanced alternative: 'What shapes kids is the overall pattern... what matters is what you do next.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Concrete: apology delivery coaching plus tag-team bedtime and an earlier routine to defuse the trigger."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Age-appropriate apology script delivered plus a direct answer to the 'damage' question."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Warm and kind; 'Will she remember tonight forever? Honestly — no' is asserted reassurance on the user's scariest question."
+        }
+      }
+    },
+    {
+      "task": "T10",
+      "total": 10,
+      "pass": false,
+      "crit": {
+        "C1": {
+          "s": 0,
+          "why": "Debates the trap theory's plausibility without separating the assignment's facts from the predicted story."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'Is it nerves talking?' acknowledges anxiety obliquely; no real validation."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Names 'the trap theory' — the hot thought is surfaced, though only to rebut it."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "'Is there any actual evidence of that?' demands evidence for the trap — but only works one side."
+        },
+        "C6": {
+          "s": 1,
+          "why": "Opportunity reframe ('best thing on a career resume') — motivational, not evidence-fitted."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Concrete and smart: give Tom ownership of the architecture review; accept before 5pm."
+        },
+        "C8": {
+          "s": 1,
+          "why": "'Is there any actual evidence of that, or is it nerves talking?' — a genuine reflective question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Decision (accept) plus a complete, well-adapted kickoff message including Tom's role."
+        },
+        "C10": {
+          "s": 1,
+          "why": "Confident and helpful, though 'don't look back' steamrolls the fear rather than addressing it."
+        }
+      }
+    },
+    {
+      "task": "T11",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'That's not CI being flaky, that's a timezone bug' counters the interpretation but facts and thoughts are never separated as a step."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'That's a frustrating pattern' — one generic acknowledgment; no specific emotions named."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Engages 'CI is broken' only to rebut it ('not CI being flaky'); never surfaced as the driving assumption."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Uses the user's own facts well (one-day-apart dates, ET window) — but only one side is examined."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'It's a timezone bug' is a complete, evidence-fitted replacement for 'CI is broken' — mechanism accounts for every observation."
+        },
+        "C7": {
+          "s": 1,
+          "why": "The fix is delivered but no diagnostic experiment distinguishes the competing hypotheses."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question anywhere."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause correct (naive local vs UTC date), real fix (tz-aware compare), and both traps explicitly killed with reasons (retries re-fail deterministically; runner swap burns a week)."
+        },
+        "C10": {
+          "s": 1,
+          "why": "'This should hold' — mild unearned certainty; otherwise warm and accurate."
+        }
+      },
+      "total": 10,
+      "pass": false
+    },
+    {
+      "task": "T12",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'Connect two facts you already found' works the facts but never separates them from 'pytest is flaky' interpretations."
+        },
+        "C2": {
+          "s": 0,
+          "why": "'I give up on finding it myself' is ignored; no feeling acknowledged."
+        },
+        "C3": {
+          "s": 1,
+          "why": "'That's why it looks flaky and isn't' touches the flaky interpretation without surfacing it or 'story of my life'."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Correct mechanism from the user's diff (mana-elixir grepped, order explained) — one-sided."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'It's 100% deterministic order dependence' is a complete evidence-fitted replacement for 'pytest is just flaky'."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Fix given; no reproduction experiment offered."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (shared module dict mutated across tests), real fix (deepcopy fixture), trap rejected with the landmine reason."
+        },
+        "C10": {
+          "s": 2,
+          "why": "'This was a good catch on your part' is earned (user did grep mana-elixir); no harmful reassurance."
+        }
+      },
+      "total": 10,
+      "pass": false
+    },
+    {
+      "task": "T13",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'You're not missing anything deep — you diagnosed the mechanism correctly' rebuts 'too junior' without separating evidence from interpretation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "The 'too junior' self-label is addressed once at the end ('morale note'); the hopelessness ('unfixable') is not."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Quotes 'too junior' to reject it; 'this is one of those unfixable race things' never surfaced."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Strong use of the user's 100ms observation; still one-sided — no evidence FOR 'cursed/unfixable' examined."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'Signature of a fire-and-forget task' reframes the mechanism but leaves 'cursed asyncio' standing unchallenged."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Fix given; no experiment that would discriminate race-vs-lost-write before patching."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 1,
+          "why": "Correct root cause and real fix, but the trap is blessed as shippable: 'it does make CI green in practice, and plenty of teams ship exactly that... mostly holds.'"
+        },
+        "C10": {
+          "s": 1,
+          "why": "'Better debugging than most seniors do on a Friday' — unearned comparison offered as comfort."
+        }
+      },
+      "total": 8,
+      "pass": false
+    },
+    {
+      "task": "T14",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "Works the facts (9001→9004, loader order, .env date) but never separates them from the 'staging is garbage' frame."
+        },
+        "C2": {
+          "s": 0,
+          "why": "'CI has been gaslighting me' and the release pressure receive no emotional acknowledgment."
+        },
+        "C3": {
+          "s": 0,
+          "why": "'Staging data is always garbage' and 'ops will take a week' are never surfaced as thoughts."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Excellent factual counter-evidence (drift math, loader line) — one-sided; the user's belief itself is unexamined."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'It was never flaky, staging just drifts daily' — partial alternative; 'always garbage'/'ops week' stand."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Fix plus hardening (warning log, gitignore) — but no experiment that proves the precedence inversion."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause correct (precedence inversion + leaked .env), real fix, and the assertion-change trap rejected with exactly why it re-breaks; bonus security catch on the live key."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Direct, protective, no unearned promises."
+        }
+      },
+      "total": 8,
+      "pass": false
+    },
+    {
+      "task": "T15",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'Shuffle mode isn't broken — it's doing exactly its job' counters the label; evidence/interpretation not separated as practice."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'You're not crazy' plus normalizing the feeling at the end ('entire conference talks') — one feeling addressed."
+        },
+        "C3": {
+          "s": 1,
+          "why": "Quotes 'feel like an idiot who doesn't understand pytest' — but only to rebut; the mind-read of the senior is untouched."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Marker-string evidence used correctly; 'a broken shuffle plugin fails in ways unrelated to one fake' is close to two-sided but the user's belief is otherwise unexamined."
+        },
+        "C6": {
+          "s": 1,
+          "why": "'It found a real order-dependence bug' reframes shuffle as detector — partial; the 'idiot' frame only rebutted."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Fix given (monkeypatch/addCleanup, canary test); no discriminating experiment."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (plain-assignment patch never restored), real fix, trap rejected with the consequence (hides future leaks) — correct."
+        },
+        "C10": {
+          "s": 2,
+          "why": "'You diagnosed it correctly from the marker string; that's the hard part' — earned validation, no harmful reassurance."
+        }
+      },
+      "total": 10,
+      "pass": false
+    },
+    {
+      "task": "T16",
+      "crit": {
+        "C1": {
+          "s": 1,
+          "why": "'What actually changed: nothing in your code' engages facts and implicitly corrects 'broken image' — no explicit separation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "Ends with 'for what it's worth' normalization; the demo panic itself is unacknowledged."
+        },
+        "C3": {
+          "s": 1,
+          "why": "'A language shouldn't have random iteration order' engaged at the end only as a factual correction; never surfaced as the hot thought."
+        },
+        "C4": {
+          "s": 0,
+          "why": "No distortion named or described."
+        },
+        "C5": {
+          "s": 1,
+          "why": "Uses the user's diff correctly ('same five roles both sides') — one-sided."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Your snapshot captured iteration order, stable only because both environments shared seed 0' — complete evidence-fitted replacement for 'broken image'."
+        },
+        "C7": {
+          "s": 1,
+          "why": "Fix given; no experiment (e.g. run with PYTHONHASHSEED=1) offered."
+        },
+        "C8": {
+          "s": 0,
+          "why": "No question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause correct, sorted() canonicalization is the real fix, pin rejected as 'planting a landmine' with the exact re-break mechanism — plus the security caveat."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Respects the user's reasoning, no false promises about the demo."
+        }
+      },
+      "total": 11,
+      "pass": false
+    }
+  ]
+}

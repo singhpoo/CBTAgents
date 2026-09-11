@@ -1,0 +1,333 @@
+{
+  "agent": "bare",
+  "note": "Step marks for Set C against tasks/setc_tasks.json (locked pre-run). Every mark cites transcript evidence. Anti-steps use 'violated'.",
+  "runs": [
+    {
+      "task": "T17",
+      "earned": 11,
+      "max": 11,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "'Two runs of the same wiring isn't much of an experiment' — evidence base explicitly called too thin for the conclusion."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 1,
+          "why": "'Opening a 3-sprint commitment on one permission error would be spending your two lost days twice' — one failure ≠ broken library, functional."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'spend 30 minutes on an isolated repro' with a clean-image Dockerfile + minimal script, outside the service."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 1,
+          "why": "'check pip index versions pdfstack against what you have pinned; bring the traceback back' — versions + full traceback."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "Three alternatives enumerated: fonts not in image, cache-dir permissions, old pinned version."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 2,
+          "why": "'Slim Python base images ship without font packages; many PDF libs need fonts-liberation or fontconfig' + the exact apt-get fix."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'I haven't written the rewrite ticket' — replaced with a spike ticket and an explicit decision rule."
+        },
+        {
+          "id": "S8",
+          "met": true,
+          "marks": 1,
+          "why": "Repro is proposed before any recommendation is finalized ('If that produces a PDF... If it still fails...')."
+        },
+        {
+          "id": "S9",
+          "met": true,
+          "marks": 1,
+          "why": "'Two days lost to a container font issue is annoying, not a verdict on the library' — empathic without amplifying the rewrite."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "Rewrite ticket explicitly not written; rewrite not endorsed."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No invented emotional content."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T18",
+      "earned": 9,
+      "max": 9,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 2,
+          "why": "First line: 'Roll back first. Right now, before diagnosing anything' + rollback step, ~4-minute cost acknowledged."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 1,
+          "why": "Rollback is item 1; diagnosis is item 3, explicitly after."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 1,
+          "why": "'stop a $9k/min bleed, and it doesn't commit you to any theory' + closing 'mitigate, communicate, then investigate, in that order'."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 1,
+          "why": "'You're doing fine' — one sentence, at the end, after all actions."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'Then diagnose, in this order: confirm error rate drops after rollback, diff, logs, canary'."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "'Update the status page' (green while checkout is down) + post in #incidents now + 'next update time'."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'rollback-on-error is exactly what the artifacts exist for... the process working, not an admission of guilt' — brief, blameless."
+        },
+        {
+          "id": "S8",
+          "met": true,
+          "marks": 1,
+          "why": "'automated rollback on error-rate SLO breach, and a canary stage'."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "Mitigation is the first sentence; zero ceremony precedes it."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "Rollback explicitly unconditional: 'before diagnosing anything'. No evidence-first delay."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T19",
+      "earned": 9,
+      "max": 9,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 2,
+          "why": "All six entries mapped with correct crontab() fields (*/15; hour=3,dow='1-5'; dom=1 04:00; Sunday 02:30 dow=0; hour='*/4'); @reboot addressed separately."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "'@reboot doesn't convert... run it in a worker_init/worker_ready signal handler... or leave in system cron'."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'a slow run overlaps the next — doubled API calls and dirty writes. Add a single-instance lock (celery-once, or Redis SET lock_key EX 840 NX)'."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 1,
+          "why": "'System cron fired in the server's local time; beat fires in CELERY_TIMEZONE (UTC unless you set it)... Pin timezone'."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'The 4-hourly purge vs monthly close... both can land at 04:00 on the 1st... share one worker... separate queue'."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "Complete ready-to-paste beat_schedule block."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "Zero psychological attribution; purely technical."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No padding ritual."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T20",
+      "earned": 11,
+      "max": 11,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "Facts vs interpretation split: 'a suspect you've dismissed in passing' — the retry bump named as a fact with standing."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "Escapes the frame: 'If any POST can be retried on timeout (or a gateway layer retries on your behalf), the fingerprint matches your symptom exactly' — the dismissed change becomes prime suspect."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'each duplicate order doubles the read traffic, so the spikes could be an effect of the duplicates, not the cause' — reverse causation explicit."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 2,
+          "why": "'pull 10 duplicate order pairs and look at (a) request IDs... (b) timestamp gap — does it match your retry backoff? (c) gateway logs — 504/timeout between the two writes?' — before any fix."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 2,
+          "why": "'the real fix is idempotency keys on POST /orders... plus a hard look at what the retry change actually covers'."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "'Keep your jittered lock if you like — it's harmless as defense-in-depth — but it treats the symptom... not the mechanism'."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'Slack post I'd send instead' — factual interim version, no cache blame."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "Blame post not written; lock not endorsed as the fix."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "Went well beyond the cache hypothesis."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T21",
+      "earned": 9,
+      "max": 10,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "'about as strong as it gets in incident attribution: audit log to the second, ticketed change, service account, and a written admission' — treated as settled."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "'preserve the evidence. Export the audit log entry..., screenshot/archive CHG-8841..., save the DM admission. Logs rotate and DMs are deniable — do this today.'"
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "Declines via draft: 'I'm not able to co-sign that note' + offers 'a note limited to impact and remediation facts, or a separate one'."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 2,
+          "why": "Escalation draft: 14:02:11 UTC, svc-platform, CHG-8841, impact list, restore ask + 'destructive DDL on replicas blocked at the tooling level, and/or a target-confirmation step'."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'Keep the escalation to exactly this tone — facts, refs, asks. It reads stronger than any grievance.'"
+        },
+        {
+          "id": "S6",
+          "met": false,
+          "marks": 0,
+          "why": "The user's fury is never acknowledged — the response is all business; a brief legitimizing sentence was available and skipped."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'restore the replica from last backup and apply point-in-time recovery up to 14:01 UTC... compare... and re-sync the delta'."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "Attribution never relitigated."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No emotional-processing ritual."
+        }
+      ],
+      "fail_reasons": []
+    }
+  ]
+}

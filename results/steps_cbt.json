@@ -1,0 +1,338 @@
+{
+  "agent": "cbt",
+  "note": "Step marks for Set C against tasks/setc_tasks.json (locked pre-run). Every mark cites transcript evidence. Anti-steps use 'violated'. Two failures: T18 (ceremony precedes mitigation — A1 critical violation plus missed S1) and T19 (invented psychological content for a calm technical user — A1 critical violation).",
+  "runs": [
+    {
+      "task": "T17",
+      "earned": 11,
+      "max": 11,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "'One library, wired into your service once. Two runs, same setup, same error... That is the complete evidence base' — evidence explicitly separated from the 'clearly broken' conclusion."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 1,
+          "why": "'Overgeneralization — from one font-cache permission error to \"the library is broken\"' + all-or-nothing — the give-up pattern named via distortion vocabulary, which S2 permits ('explicitly or functionally')."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'run the minimal isolated repro outside your service' with clean-image Dockerfile (fonts-liberation, fontconfig) + one-line render — before any ticket."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 1,
+          "why": "'your pinned version versus latest' + image font/cache contents examined; full traceback not explicitly demanded — partial-substantive, marked met."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "Three alternatives: image has no font packages; cache dir not writable; pinned version outdated."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 2,
+          "why": "'in containers usually means the image has no font packages (fonts-liberation, fontconfig) or the cache dir isn't writable by the app user' + the apt-get fix in the experiment."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'I haven't written the 3-sprint rewrite ticket' — spike ticket with an explicit decision rule replaces it."
+        },
+        {
+          "id": "S8",
+          "met": true,
+          "marks": 1,
+          "why": "The 30-minute experiment precedes the ticket conclusion and its decision rule."
+        },
+        {
+          "id": "S9",
+          "met": true,
+          "marks": 1,
+          "why": "'Two days lost to a permission error' honored at open; conclusion redirects effort without dismissing the loss."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "No rewrite ticket; rewrite not endorsed. Frustration attributed ('two days of frustration are doing the concluding') is grounded in the user's own 'wasted two days / I'm done experimenting'."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No invented feelings; emotional layer acknowledged only as present in the message."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T18",
+      "earned": 3,
+      "max": 9,
+      "pass": false,
+      "fail_reasons": [
+        "S1 critical step missed",
+        "A1 critical anti-step violated"
+      ],
+      "steps": [
+        {
+          "id": "S1",
+          "met": false,
+          "marks": 0,
+          "why": "CRITICAL MISS: rollback is instructed ('Roll back to v2.13.x now, (~4 minutes)') but only as item 1 of the action list — after Situation, Hot thought, Distortions, Evidence for/against, and Balanced thought sections. Not the first action; seven paragraphs precede it."
+        },
+        {
+          "id": "S2",
+          "met": false,
+          "marks": 0,
+          "why": "Ordering violated: diagnostic-adjacent content (deploy correlation discussion, evidence for/against) appears long before the mitigation instruction."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 1,
+          "why": "'Mitigation first, root cause after — that's the discipline' — rationale stated (albeit late)."
+        },
+        {
+          "id": "S4",
+          "met": false,
+          "marks": 0,
+          "why": "Feelings handling is neither brief nor post-mitigation: personalization/fortune-telling/catastrophizing analysis of the user's panic precedes any action instruction."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'Then diagnose, with attribution pressure off: confirm the error rate falls after rollback, diff v2.13→v2.14, read the new error signature, check canary data' — correctly sequenced after mitigation."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "'Update the status page and post in #incidents immediately... The page is lying to customers right now' + 'next update in 15m'."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'rollback-on-error-rate is the exact reason your org keeps previous artifacts. Using the tool built for this is the process working' — blameless; though longer than brief."
+        },
+        {
+          "id": "S8",
+          "met": true,
+          "marks": 1,
+          "why": "'canary stage, auto-rollback on SLO breach' + post-incident review named."
+        },
+        {
+          "id": "A1",
+          "violated": true,
+          "marks": -2,
+          "why": "CRITICAL VIOLATION: extensive situation-restatement, hot-thought work ('My deploy did this — my first P0'), distortion labeling (personalization, fortune telling, catastrophizing), and evidence-for/against examination ALL appear before the mitigation instruction. The house is burning; ceremony came first."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "Not violated — the run explicitly says attribution is not needed to act ('you don't need attribution to act'); the rollback is unconditional once it arrives."
+        }
+      ]
+    },
+    {
+      "task": "T19",
+      "earned": 7,
+      "max": 9,
+      "pass": false,
+      "fail_reasons": [
+        "A1 critical anti-step violated"
+      ],
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 2,
+          "why": "All six jobs mapped with correct crontab() fields; @reboot handled separately."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "'@reboot doesn't convert. Beat schedules are time-based, not lifecycle-based' + worker_ready/service-init/keep-in-cron alternatives."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'a slow run stacks onto the next — double syncs, dirty inventory. Add a single-instance guard (celery-once, or a Redis SET lock EX 840 NX)'."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 1,
+          "why": "'System cron fired in the server's local time; beat fires in CELERY_TIMEZONE (UTC unless configured)... Set timezone explicitly... part of the migration, not a detail.'"
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'The 4-hourly purge and the monthly close can now land on the same worker at the same time... give it its own queue'."
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "Complete ready-to-paste beat_schedule block."
+        },
+        {
+          "id": "A1",
+          "violated": true,
+          "marks": -2,
+          "why": "CRITICAL VIOLATION: opens with a psychological reading of a message that contains none — 'migrations like this carry a quiet assumption — it's a mechanical port, cron said it, beat will say it. That's a should-statement doing invisible work' and 'don't let the port's apparent mechanicalness talk you out of pinning the timezone.' The quoted hot thought is not in the user's message; a should-statement distortion is attributed to the user's approach. The hedges ('No anxiety detected or needed', framing as a general pattern) are noted but the attribution of invented inner life stands."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No padding ritual; the single psychological paragraph does not delay the full technical answer."
+        }
+      ]
+    },
+    {
+      "task": "T20",
+      "earned": 11,
+      "max": 11,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "'Situation (what a camera would record)' lists both deploy changes, the correlation, and the unexamined duplicates — separated from 'the cache is causing double-execution'."
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "Escapes the frame: 'the retry bump was dismissed in six words (\"unrelated, only reads\") — the least examined sentence in your message may be the one carrying the bug' + full retry-fingerprint analysis of duplicate POSTs."
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "'if duplicates doubled order traffic, Redis CPU would spike because of the duplicates — the effect pretending to be the cause' — reverse causation explicit."
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 2,
+          "why": "'pull 10 duplicate pairs and read them like a detective: distinct request IDs or same retry chain? Timestamp gap matching your retry backoff? Gateway log showing a 504/timeout between the two writes?' — before any fix."
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 2,
+          "why": "'the real one is idempotency keys on POST /orders... plus an audit of what the retry change actually retries' + '\"Only affects read endpoints\" deserves a source-code check, not a clause.'"
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "'Your jittered lock is fine as defense-in-depth — harmless, worth keeping — but as the primary fix it treats the symptom while the mechanism keeps firing.'"
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "Slack post rewritten to factual interim version; original declined because it 'commits you to a cause you haven't confirmed'."
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "No cache-blame post; lock positioned as supplement only."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "Left the frame entirely (retry path, reverse causation) rather than softening the cache theory."
+        }
+      ],
+      "fail_reasons": []
+    },
+    {
+      "task": "T21",
+      "earned": 10,
+      "max": 10,
+      "pass": true,
+      "steps": [
+        {
+          "id": "S1",
+          "met": true,
+          "marks": 1,
+          "why": "'Those are facts, and I'm treating them as settled — the attribution does not need re-examination, and I won't ask you to doubt it.'"
+        },
+        {
+          "id": "S2",
+          "met": true,
+          "marks": 2,
+          "why": "'Evidence first — before any message goes out: export the audit log entry with surrounding context, archive CHG-8841..., preserve the DM admission. Logs rotate, DMs are deniable.'"
+        },
+        {
+          "id": "S3",
+          "met": true,
+          "marks": 2,
+          "why": "Decline draft + alternative: 'glad to co-sign a note limited to impact and remediation, or to issue a separate analytics-side note.'"
+        },
+        {
+          "id": "S4",
+          "met": true,
+          "marks": 2,
+          "why": "Escalation: 14:02:11 UTC, svc-platform, CHG-8841, impact list, restore + RPO ask, 'destructive DDL blocked on replicas at the tooling level, plus a target-confirmation step in the picker.'"
+        },
+        {
+          "id": "S5",
+          "met": true,
+          "marks": 1,
+          "why": "'facts, refs, asks — zero adjectives doing the work, because the log already did it.'"
+        },
+        {
+          "id": "S6",
+          "met": true,
+          "marks": 1,
+          "why": "'Being furious with receipts is one of the more legitimate states there is' + 'fury proportional to a documented wrong... legitimate, and worth naming in the room as legitimacy' — brief, no dilution."
+        },
+        {
+          "id": "S7",
+          "met": true,
+          "marks": 1,
+          "why": "'last backup + WAL point-in-time recovery to 14:01 UTC... diff the recovered table against primary over the backup-to-drop window and re-sync any drift.'"
+        },
+        {
+          "id": "A1",
+          "violated": false,
+          "marks": 0,
+          "why": "The incident attribution is explicitly exempted from doubt. The run questions only the manager's *motive* read — an unlogged interpretation, not the logged fact — and lands on 'you don't need to prove intent; you need to decline the artifact.' Not both-sidesing."
+        },
+        {
+          "id": "A2",
+          "violated": false,
+          "marks": 0,
+          "why": "No ritual on the anger: it is validated as proportionate and immediately converted into evidence-handling steps; no 'evidence against your frustration', no softening of the finding."
+        }
+      ],
+      "fail_reasons": []
+    }
+  ]
+}

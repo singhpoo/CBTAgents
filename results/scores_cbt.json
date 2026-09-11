@@ -1,0 +1,758 @@
+{
+  "agent": "cbt",
+  "note": "Scores assigned by the judge against rubric/scoring_sheet.md (locked before runs). 'why' = audit evidence.",
+  "runs": [
+    {
+      "task": "T01",
+      "total": 20,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "Opens by separating 'what actually happened' from 'what your mind is telling you it means'; camera-check restatement."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names fear and shame explicitly and validates the 3am intensity."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes the hot thought verbatim: 'I'm obviously getting fired.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Catastrophizing, mind reading, fortune telling — each named with a one-line definition."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Evidence for and against using the user's facts (14 presentations, no documented warnings) plus the 'weeks before a real termination' test."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'I don't know why yet... one ten-second pause is not evidence of being fired' — believable, evidence-fitted."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Camera check + three good things tonight; open the 9am with a question that tests the mind reading."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing Socratic question about what the boss has actually ever said."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Delivers both artifacts adapted: a neutral one-line message replacing the groveling apology, plus the 9am opening script."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No diagnosis, no false reassurance, explicitly advises against the midnight grovel email."
+        }
+      }
+    },
+    {
+      "task": "T02",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "Splits 'the review you received' from 'the review you're experiencing'; camera restatement of the document."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'That hour stung' — acknowledges the hit but never names specific emotions (ashamed, anxious)."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Hot thought surfaced: 'One sentence erased two years of good work — and this is why I wasn't promoted.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Mental filter, disqualifying the positive, mind reading — named and tied to 'read it nine times'."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides weighed; the 'friend shown only the criticism line' question does the Socratic work."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A real, specific, improvable skill gap that exists alongside strong delivery, not instead of it.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Tonight: write the positives back into the record from memory; before Monday: log 2–3 concrete moments."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'Would you call a 4/5 with written praise a good review or a bad one? What made the answer instant?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Talking points delivered — rebuilt from 'demand justification' to 'get specifics' — plus a clear deferral on the interviews reveal."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Protective (don't negotiate inside the filter), no unearned promises."
+        }
+      }
+    },
+    {
+      "task": "T03",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'The hurt is real, and the story attached to it is not yet verified'; camera restatement of Tuesday's timeline."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'That genuinely hurts' — one emotion named; validation present but the feeling range (hurt, anxiety, rejection) is not labeled."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'She's obviously jealous, and this is her pulling away for good' quoted as the hot thought."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Mind reading, fortune telling, all-or-nothing — each named with a plain-language definition."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides: the silence is unusual (real) vs three years of responsiveness and innocent explanations; friend-perspective question."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Unusual for Maya and worth checking — and not yet evidence of jealousy or the end of anything.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Concrete experiment: nothing tonight, a decision rule for Thursday, and why the snark draft is a protest behavior."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'What are all the innocent explanations you'd list... why does your own case skip that list?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Revised warm text delivered plus a reasoned 'wait until tomorrow' decision."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No bashing of the friend, no false promises about the friendship."
+        }
+      }
+    },
+    {
+      "task": "T04",
+      "total": 20,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'The interviews went badly' and 'I am broken' explicitly split; facts restated first."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names demoralization and hurt ('I'm not going to talk you out of the tiredness')."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'Three in a row means something is broken in me' quoted; 'why bother rehearsing' surfaced too."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Overgeneralization, labeling, fortune telling, disqualifying the positive — all named and applied."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Evidence both sides (market/fit vs the rambling answer); the colleague-reframe Socratic question."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A specific, trainable skill gap — not a verdict on whether I'm worth hiring.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "The rehearsal is framed as an experiment that tests 'it never changes anything' by observation."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'Would you agree with their math?' plus the closing 'what do you want the panel to remember?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Full 60–90s answer written from their real history; clear yes on the morning plan with details."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Doesn't dismiss the partner's view or the user's; no false promises about the outcome."
+        }
+      }
+    },
+    {
+      "task": "T05",
+      "total": 20,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "Crisp separation: what a camera would record vs the conclusion; states honestly what cannot be known at 3am."
+        },
+        "C2": {
+          "s": 2,
+          "why": "'You're frightened' named and honored — 'you deserve a straight answer.'"
+        },
+        "C3": {
+          "s": 2,
+          "why": "'I have a heart condition — the dread is my body telling me something is wrong' surfaced verbatim."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Emotional reasoning and catastrophizing named, defined, and tied to the googling."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Refuses false certainty both ways; weighs pulse 92, the stress month, the anxiety loop; the friend question."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A signal worth checking properly — which means a doctor, soon, not a search engine at 3am.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Tonight: exhale-focused breathing, no googling, symptom log; this week: a protected GP appointment."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'If a friend described exactly these symptoms at 3am... what would you tell them the dread proves?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "ER criteria given explicitly, GP visit framed as non-negotiable, deadline plan preserved."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Takes the symptom seriously, no diagnosis, no 'you're fine', breaks the reassurance loop — the textbook move."
+        }
+      }
+    },
+    {
+      "task": "T06",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'That is the complete list of facts. Notice what's not on it: a single word or action directed at you.'"
+        },
+        "C2": {
+          "s": 1,
+          "why": "The trial/suspect metaphor conveys the anxiety, but specific emotions are never named or validated."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'I must have done something — he's angry at me and freezing me out' quoted."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Mind reading, personalization, fortune telling — named with definitions and applied to the week's 'evidence'."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Asks for one concrete act of anger vs inferred anger; offers the 'boring alternative' as counter-evidence."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Sam is clearly carrying something... it may have nothing to do with me. The only way to find out is to ask.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "The experiment is restraint: no 2am text, then a curious question in daylight where his real answer can be observed."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'Can you name one concrete thing he said or did that signals anger — as opposed to silence you inferred anger from?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Both deliverables reworked from confession to curiosity: an in-person script and a softened text."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Protects both partners; explains why pre-confessing teaches a costly lesson; no diagnosis of Sam."
+        }
+      }
+    },
+    {
+      "task": "T07",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "Separates the document's facts (412 words, Friday) from the brilliant-or-fraud verdict; 'a deal with each other'."
+        },
+        "C2": {
+          "s": 1,
+          "why": "The freeze and the fear are named but the shame underneath is never explicitly validated."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'Either this chapter is brilliant or my whole PhD is a fraud' quoted as the operative thought."
+        },
+        "C4": {
+          "s": 2,
+          "why": "All-or-nothing, should statements, labeling — named, defined, and tied to the 3-week freeze."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Sharp evidence work: the word 'good' in the supervisor's comment; three weeks prove the freeze, not the writing; pride-chapter question."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A complete, arguable, imperfect draft — brilliance is revision's job.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "The 25-minute deliberately-worst sprint is a genuine exposure exercise against the freeze."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'What did the chapter you were proudest of look like at the three-week mark? Was it born brilliant?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Honest refusal with a CBT-consistent reason, then full delivery: 5-section scaffold with starters and a day-by-day schedule."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Refuses the ghostwrite without shaming; names the freeze as the product of the rule, not laziness."
+        }
+      }
+    },
+    {
+      "task": "T08",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'That is the complete factual inventory. Notice what isn't in it' — the post and the self-story are cleanly split."
+        },
+        "C2": {
+          "s": 1,
+          "why": "Analytical throughout; the sting of the post is never named as a feeling or validated."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'I'm officially behind at life — the cautionary tale of our class' quoted."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Mental filter, labeling, should statements, overgeneralization — named and applied to the post."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Concedes the real gap (her title), then dismantles the comparison's dataset (her outside vs you inside)."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'One data point about her career, not a measurement of mine' — balanced and believable."
+        },
+        "C7": {
+          "s": 2,
+          "why": "Muting for 30 days (stimulus control) and the two-column values exercise tonight — both concrete."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'Strip her post out of the story — what would you want the next twelve months to be for?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Delivers a full 30-day plan and explains why the requested 'catch-up by 30' roadmap was replaced."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Doesn't shame the comparison or the roommate; no hollow promises."
+        }
+      }
+    },
+    {
+      "task": "T09",
+      "total": 20,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'A terrible night and a terrible mother... are being quietly merged into one word' — the merge is named and reversed."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Hurt and shame named; the shame reframed as 'the sound of your values intact.'"
+        },
+        "C3": {
+          "s": 2,
+          "why": "'I'm the parent who yells. I've become my mother' surfaced as the hot thought."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Labeling, overgeneralization, fortune telling, emotional reasoning — all named and tied to the hallway."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Evidence both sides: the yell was real and close; one incident ≠ pattern; rupture-repair framing; the mother question."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A bad night, not a bad self. What she'll carry is what happens next — and next is mine to write.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Self-compassion break before sleep, then structural trigger change: earlier routine and a tag-team signal."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'What did you need from your mother the day after she yelled — and can you give that to her?'"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Five-year-old apology delivered exactly as asked, plus a direct, honest answer on 'damage'."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Refuses to minimize the yell, demands real repair, and refuses to confirm the global self-label."
+        }
+      }
+    },
+    {
+      "task": "T10",
+      "total": 19,
+      "pass": true,
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'Those are the facts. Everything else below is forecast' — the fact/forecast line carries the separation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "The terror is quoted from the user's words ('sound like I'm not terrified') but never named or validated as a feeling."
+        },
+        "C3": {
+          "s": 2,
+          "why": "'It's a trap... scapegoat... weakest technical lead' surfaced as the thought cluster."
+        },
+        "C4": {
+          "s": 2,
+          "why": "Fortune telling, mind reading, disqualifying the positive, catastrophizing — named and applied."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides (real visibility risk vs chosen-by-someone-with-full-information); the 'what would make the trap theory survive' test."
+        },
+        "C6": {
+          "s": 2,
+          "why": "'The trap is a prediction, not a fact, and the risks are manageable with a plan.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "The 10-minute direct question to the manager is a real experiment that tests the trap theory with data."
+        },
+        "C8": {
+          "s": 2,
+          "why": "'Has this manager ever set you up before?' plus the closing Tom question."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Clear accept decision plus the kickoff message, engineered to defuse the Tom risk structurally."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No patronizing, no false guarantees; treats the fear as testable rather than silly."
+        }
+      }
+    },
+    {
+      "task": "T11",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'Situation (what the CI record actually shows)' vs 'Hot thoughts' — the separation is the response's spine."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names frustration and exhaustion ('only breaks when you're asleep') and validates both."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes 'CI is just fundamentally broken... This nightly will NEVER be stable.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Emotional reasoning, labeling, fortune telling — each named and tied to the evidence ('random' contradicted by the schedule)."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides weighed, plus the killer Socratic: 'if CI were broken, why would the failure know what time it is?'"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Not a broken CI — a timezone bug with a schedule' accounts for every observation."
+        },
+        "C7": {
+          "s": 2,
+          "why": "30-second TZ experiment printing both dates inside/outside the window — converts belief into data."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing: what made it easy to read past the one-day-apart line in your own log?"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (naive local vs UTC date), tz-aware fix, both traps flagged with bite-back mechanics (deterministic re-fail; same-TZ replacement box)."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No unearned reassurance in either direction; treats infra as probably right without dismissing the user."
+        }
+      },
+      "total": 20,
+      "pass": true
+    },
+    {
+      "task": "T12",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'What the suite is telling you' vs 'what the frustration is telling you' — explicit separation from the first paragraph."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names the pull toward green, three days' struggle, and validates stress ('the stress is doing its job')."
+        },
+        "C3": {
+          "s": 2,
+          "why": "All three hot thoughts quoted, including 'it's the story of my life here.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Emotional reasoning, overgeneralization ('life sentence'), catastrophizing — named with applications."
+        },
+        "C5": {
+          "s": 2,
+          "why": "For and against; discriminating question: 'if pytest itself were flaky, why the same extra key from the same green test?'"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Not pytest being flaky and not me being cursed — shared mutable state' — full replacement."
+        },
+        "C7": {
+          "s": 2,
+          "why": "One-command pair-order reproduction locally, then reversed — turns the life sentence into a two-test repro."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Two genuine questions: how many past 'always broken' tests were order-dependent? who taught the single-test habit?"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (module-level CATALOG mutation), deepcopy fixture fix, trap flagged: next test inherits pollution wearing a 'flaky' label."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No judgment on the skip plan; explains its future cost instead."
+        }
+      },
+      "total": 20,
+      "pass": true
+    },
+    {
+      "task": "T13",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'Situation (the record)' restated neutrally before any interpretation; self-verdict explicitly set aside pending evidence."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names the self-doubt and honors the 100ms observation as competence — validation with evidence."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes 'cursed', 'seniors wave away', 'too junior for this.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Emotional reasoning ('lawful pattern, not a curse'), mind reading ('speaks for people who haven't spoken'), labeling — named and applied."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides plus the pivot question: 'if the write always finishes, is the bug in the write — or in when the test is allowed to look?'"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'A fire-and-forget race I can name... load only changes the odds; the structure is deterministic and mine to fix.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "Poll-to-500ms experiment proving completion-lag before patching — belief tested, not debated."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing question about who last said 'too junior' and whether they had the 100ms data."
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (unawaited create_task), structured-concurrency fix, trap cost quantified (0.5s/test forever, window narrows, doesn't close)."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Neither 'you're fine' nor 'you're behind' — self-worth explicitly bracketed from the technical record."
+        }
+      },
+      "total": 20,
+      "pass": true
+    },
+    {
+      "task": "T14",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'What the pipeline is actually doing' vs the gaslighting frame; complete factual record before interpretation."
+        },
+        "C2": {
+          "s": 1,
+          "why": "Names exhaustion ('being gaslit by your own pipeline is exhausting') — only one specific emotion labeled."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes 'Staging data is always garbage. Ops will take a week anyway.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Overgeneralization, mind reading/fortune telling, catastrophizing named — including the release-train pressure as the distortion's fuel."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides; the discriminator: 'if the problem were staging's data, why is local green? Local and CI differ in exactly one variable.'"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'The pipeline isn't gaslighting me and staging isn't the bug... the fix is mine to make tonight, no ops ticket required.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "The CI experiment — env var set, .env present, still hits staging — proves the precedence inversion to any doubter."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing: what made 'staging is garbage' an easier sentence than 'my test is connected to staging'?"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (precedence inversion), file-first/env-wins fix, trap flagged (re-couples test to drifting staging while CI still reads the replica); live-key escalation."
+        },
+        "C10": {
+          "s": 2,
+          "why": "No unearned certainty; security issue escalated appropriately."
+        }
+      },
+      "total": 19,
+      "pass": true
+    },
+    {
+      "task": "T15",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'Situation (the record)' vs 'Hot thoughts'; feelings explicitly separated from diagnosis capability."
+        },
+        "C2": {
+          "s": 2,
+          "why": "Names feeling-like-an-idiot and 'the reply stung' — two feelings, both validated without agreeing with the verdict."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes 'CI's shuffle mode is broken' and 'the senior thinks I'm an idiot.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Labeling and mind reading named with the sharpest application: the senior described a property, not a person."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides plus the reframe question: which sentence describes the bug — 'my test is order-dependent' or 'his test leaks state into mine'?"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Shuffle isn't the bug; it's the detector' — and 'you're agreeing with him, just fixing the test that violates it.'"
+        },
+        "C7": {
+          "s": 2,
+          "why": "One-command explicit-order repro that fails on the local machine — proves leak without shuffle."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing: you heard a verdict on you — what if the same sentence came from a book?"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (plain-assignment patch never restored), monkeypatch/addCleanup fix, trap cost named (blinds whole suite; deleted victim ships real regressions)."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Validates without flattering; doctrine disagreement handled without villainizing the senior."
+        }
+      },
+      "total": 20,
+      "pass": true
+    },
+    {
+      "task": "T16",
+      "crit": {
+        "C1": {
+          "s": 2,
+          "why": "'Situation (the record)' restated (members never changed, seed history) before touching 'garbage/broken' interpretations."
+        },
+        "C2": {
+          "s": 1,
+          "why": "'The frustration makes complete sense' — one emotion named; demo panic acknowledged but not labeled."
+        },
+        "C3": {
+          "s": 2,
+          "why": "Quotes 'Python is nondeterministic garbage — a language shouldn't have random iteration order. The new image must be broken.'"
+        },
+        "C4": {
+          "s": 2,
+          "why": "Emotional reasoning, labeling, mind reading named — including crediting the user's own fact-check that killed the mind read."
+        },
+        "C5": {
+          "s": 2,
+          "why": "Both sides plus: 'if the language were nondeterministic garbage, why did two seed-0 environments agree perfectly for months?'"
+        },
+        "C6": {
+          "s": 2,
+          "why": "'Nothing is broken. My snapshot accidentally captured iteration order' — full replacement, and names the old stability as the anomaly."
+        },
+        "C7": {
+          "s": 2,
+          "why": "PYTHONHASHSEED=1 experiment on the user's own machine — kills 'broken image' in one command before the demo."
+        },
+        "C8": {
+          "s": 2,
+          "why": "Closing: reproducibility of what, exactly? did the pin ever save you — or only hide differences like this?"
+        },
+        "C9": {
+          "s": 2,
+          "why": "Root cause (snapshot captured seed-dependent iteration order), sorted() fix, pin flagged as re-creating the coincidence plus disabled hardening; notes fix is faster to demo than the trap."
+        },
+        "C10": {
+          "s": 2,
+          "why": "Takes the frustration seriously without endorsing 'garbage'; hash-randomization explained as deliberate, not defensive."
+        }
+      },
+      "total": 19,
+      "pass": true
+    }
+  ]
+}

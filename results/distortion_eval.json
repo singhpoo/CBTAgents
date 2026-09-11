@@ -1,0 +1,373 @@
+{
+  "dataset": "joyboseroy/CognitiveDistortion-Eval (HF; Beck taxonomy; 163 rows)",
+  "pilot": "12 items, 2 per primary class, seed 42",
+  "extraction": "name-based label matching (documented limitation: paraphrases uncounted, symmetric)",
+  "agents": {
+    "bare": {
+      "micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 23
+      },
+      "macro_f1": 0.0,
+      "primary_hit_rate": "0/12",
+      "per_class_f1": {
+        "overgeneralization": 0.0,
+        "arbitrary_inference": 0.0,
+        "magnification": 0.0,
+        "selective_abstraction": 0.0,
+        "personalization": 0.0,
+        "minimization": 0.0
+      },
+      "details": [
+        {
+          "id": "CD004",
+          "gold": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD008",
+          "gold": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD010",
+          "gold": [
+            "arbitrary_inference",
+            "magnification"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD015",
+          "gold": [
+            "arbitrary_inference",
+            "personalization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD077",
+          "gold": [
+            "overgeneralization",
+            "personalization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD091",
+          "gold": [
+            "minimization",
+            "selective_abstraction"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD094",
+          "gold": [
+            "arbitrary_inference",
+            "selective_abstraction"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD100",
+          "gold": [
+            "minimization",
+            "selective_abstraction"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD127",
+          "gold": [
+            "overgeneralization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "primary_hit": false
+        },
+        {
+          "id": "CD136",
+          "gold": [
+            "magnification",
+            "overgeneralization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD137",
+          "gold": [
+            "arbitrary_inference",
+            "overgeneralization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        },
+        {
+          "id": "CD153",
+          "gold": [
+            "arbitrary_inference",
+            "overgeneralization"
+          ],
+          "predicted": [],
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "primary_hit": false
+        }
+      ]
+    },
+    "cbt": {
+      "micro": {
+        "precision": 0.792,
+        "recall": 0.826,
+        "f1": 0.809,
+        "tp": 19,
+        "fp": 5,
+        "fn": 4
+      },
+      "macro_f1": 0.884,
+      "primary_hit_rate": "11/12",
+      "per_class_f1": {
+        "overgeneralization": 0.89,
+        "arbitrary_inference": 0.89,
+        "magnification": 0.86,
+        "selective_abstraction": 1.0,
+        "personalization": 0.67,
+        "minimization": 1.0
+      },
+      "details": [
+        {
+          "id": "CD004",
+          "gold": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "predicted": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD008",
+          "gold": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "predicted": [
+            "magnification",
+            "selective_abstraction"
+          ],
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD010",
+          "gold": [
+            "arbitrary_inference",
+            "magnification"
+          ],
+          "predicted": [
+            "arbitrary_inference",
+            "magnification"
+          ],
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD015",
+          "gold": [
+            "arbitrary_inference",
+            "personalization"
+          ],
+          "predicted": [
+            "arbitrary_inference",
+            "labeling"
+          ],
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "primary_hit": false
+        },
+        {
+          "id": "CD077",
+          "gold": [
+            "overgeneralization",
+            "personalization"
+          ],
+          "predicted": [
+            "overgeneralization",
+            "personalization"
+          ],
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD091",
+          "gold": [
+            "minimization",
+            "selective_abstraction"
+          ],
+          "predicted": [
+            "disqualifying_positive",
+            "minimization",
+            "selective_abstraction"
+          ],
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD094",
+          "gold": [
+            "arbitrary_inference",
+            "selective_abstraction"
+          ],
+          "predicted": [
+            "selective_abstraction"
+          ],
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "primary_hit": true
+        },
+        {
+          "id": "CD100",
+          "gold": [
+            "minimization",
+            "selective_abstraction"
+          ],
+          "predicted": [
+            "disqualifying_positive",
+            "minimization",
+            "selective_abstraction"
+          ],
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD127",
+          "gold": [
+            "overgeneralization"
+          ],
+          "predicted": [
+            "overgeneralization"
+          ],
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        },
+        {
+          "id": "CD136",
+          "gold": [
+            "magnification",
+            "overgeneralization"
+          ],
+          "predicted": [
+            "all_or_nothing",
+            "overgeneralization"
+          ],
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "primary_hit": true
+        },
+        {
+          "id": "CD137",
+          "gold": [
+            "arbitrary_inference",
+            "overgeneralization"
+          ],
+          "predicted": [
+            "all_or_nothing",
+            "arbitrary_inference"
+          ],
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "primary_hit": true
+        },
+        {
+          "id": "CD153",
+          "gold": [
+            "arbitrary_inference",
+            "overgeneralization"
+          ],
+          "predicted": [
+            "arbitrary_inference",
+            "overgeneralization"
+          ],
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "primary_hit": true
+        }
+      ]
+    }
+  }
+}

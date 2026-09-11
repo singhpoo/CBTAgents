@@ -1,0 +1,86 @@
+[
+  {
+    "id": "CD004",
+    "statement": "I got one negative comment on my presentation. The whole thing was a disaster.",
+    "gold_primary": "Selective Abstraction",
+    "gold_secondary": "Magnification",
+    "context": "professional presentation"
+  },
+  {
+    "id": "CD008",
+    "statement": "My model's accuracy dropped 0.5%. Everything I've worked on for the past month is worthless.",
+    "gold_primary": "Magnification",
+    "gold_secondary": "Selective Abstraction",
+    "context": "ML research"
+  },
+  {
+    "id": "CD010",
+    "statement": "I stumbled over my words once in the interview. They will definitely not hire me.",
+    "gold_primary": "Magnification",
+    "gold_secondary": "Arbitrary Inference",
+    "context": "job interview"
+  },
+  {
+    "id": "CD015",
+    "statement": "I said something awkward at the dinner. Everyone thinks I'm socially incompetent.",
+    "gold_primary": "Personalization",
+    "gold_secondary": "Arbitrary Inference",
+    "context": "social situation"
+  },
+  {
+    "id": "CD077",
+    "statement": "The AI system made a mistake that hurt a user. I should never have built this.",
+    "gold_primary": "Personalization",
+    "gold_secondary": "Overgeneralization",
+    "context": "AI ethics / responsible development"
+  },
+  {
+    "id": "CD091",
+    "statement": "I have twenty patents but no one knows who I am in the AI field.",
+    "gold_primary": "Minimization",
+    "gold_secondary": "Selective Abstraction",
+    "context": "professional recognition"
+  },
+  {
+    "id": "CD094",
+    "statement": "I don't have a publications list as long as my peers. I'm behind academically.",
+    "gold_primary": "Selective Abstraction",
+    "gold_secondary": "Arbitrary Inference",
+    "context": "academic career"
+  },
+  {
+    "id": "CD100",
+    "statement": "I've spent fifteen years in industry and contributed nothing that will be remembered.",
+    "gold_primary": "Minimization",
+    "gold_secondary": "Selective Abstraction",
+    "context": "career meaning / legacy"
+  },
+  {
+    "id": "CD127",
+    "statement": "US taxpayers gave $400 billion to cable companies to build fibre internet across America. The companies took the money and built nothing. Therefore no corporation can ever be trusted with public funds.",
+    "gold_primary": "Overgeneralization",
+    "gold_secondary": "",
+    "context": "conspiracy / corporate accountability / infrastructure"
+  },
+  {
+    "id": "CD136",
+    "statement": "I committed to exercising every day. I missed two days. The whole commitment is broken and I've proven I can't change.",
+    "gold_primary": "Overgeneralization",
+    "gold_secondary": "Magnification",
+    "context": "committed action / behaviour change"
+  },
+  {
+    "id": "CD137",
+    "statement": "Accepting my chronic pain means giving up. I refuse to accept it because that would mean defeat.",
+    "gold_primary": "Arbitrary Inference",
+    "gold_secondary": "Overgeneralization",
+    "context": "chronic pain / acceptance"
+  },
+  {
+    "id": "CD153",
+    "statement": "My childhood was traumatic. It's only a matter of time before I develop a serious mental illness.",
+    "gold_primary": "Arbitrary Inference",
+    "gold_secondary": "Overgeneralization",
+    "context": "childhood adversity / mental health anxiety"
+  }
+]

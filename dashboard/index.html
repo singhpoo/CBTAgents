@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CBT Agent Bake-off — Baseline vs CBT Agent</title>
+<style>
+  :root{
+    --bg:#f1f5f9; --card:#ffffff; --line:#e2e8f0; --ink:#0f172a; --muted:#64748b;
+    --bare:#b45309; --bare-bg:#fff7ed; --cbt:#0f766e; --cbt-bg:#f0fdfa;
+    --s2-bg:#dcfce7; --s2-ink:#166534; --s1-bg:#fef3c7; --s1-ink:#92400e; --s0-bg:#fee2e2; --s0-ink:#991b1b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  header{background:var(--ink);color:#fff;padding:18px 28px}
+  header h1{margin:0;font-size:20px;font-weight:700}
+  header .sub{color:#94a3b8;font-size:13px;margin-top:3px}
+  .pills{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .pill{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+  .pill.bare{background:var(--bare);color:#fff}
+  .pill.cbt{background:#14b8a6;color:#042f2e}
+  .pill.delta{background:#1e293b;color:#e2e8f0;font-weight:600}
+  nav{display:flex;gap:6px;padding:12px 28px 0;max-width:1400px;margin:0 auto}
+  nav button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:8px 16px;border-radius:10px 10px 0 0;border-bottom:none;cursor:pointer;font-size:14px;font-weight:600}
+  nav button.on{color:var(--ink);background:var(--bg);border-color:#cbd5e1}
+  main{max-width:1400px;margin:0 auto;padding:18px 28px 80px}
+  section.tab{display:none}
+  section.tab.on{display:block}
+  h2{font-size:17px;margin:6px 0 12px}
+  h3{font-size:14px;margin:0 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .note{color:var(--muted);font-size:13px}
+  .verdict{border-left:4px solid #14b8a6}
+  /* agent cards */
+  .agentrow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:16px 0}
+  .agentcard{border-radius:12px;padding:18px;border:1px solid var(--line)}
+  .agentcard.bare{background:var(--bare-bg);border-color:#fdba74}
+  .agentcard.cbt{background:var(--cbt-bg);border-color:#5eead4}
+  .agentcard .big{font-size:34px;font-weight:800;line-height:1}
+  .agentcard.bare .big{color:var(--bare)} .agentcard.cbt .big{color:var(--cbt)}
+  .agentcard .name{font-weight:800;font-size:16px}
+  .agentcard .meta{color:var(--muted);font-size:13px;margin-top:4px}
+  /* gap bars */
+  .gaprow{display:grid;grid-template-columns:260px 1fr 90px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .gaprow:last-child{border-bottom:none}
+  .gaprow .lbl{font-size:13.5px;font-weight:600}
+  .gaprow .lbl .cid{color:var(--muted);font-weight:700;margin-right:6px}
+  .bars{display:flex;flex-direction:column;gap:4px}
+  .bar{display:block;height:13px;border-radius:6px;position:relative;min-width:2px}
+  .bar.b{background:var(--bare)} .bar.c{background:var(--cbt)}
+  .barwrap{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);width:100%}
+  .bartrack{flex:1;display:block}
+  .delta{font-weight:800;font-size:14px;color:var(--cbt);text-align:right}
+  .delta.zero{color:var(--muted)}
+  /* pass table */
+  table.pass{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:8px}
+  table.pass th,table.pass td{border:1px solid var(--line);padding:6px 10px;text-align:center}
+  table.pass th{background:#f8fafc;color:var(--muted);font-weight:600}
+  table.pass td.task{text-align:left;font-weight:600}
+  .ok{color:var(--s2-ink);font-weight:700}.bad{color:var(--s0-ink);font-weight:700}
+  /* runs layout */
+  .runslayout{display:grid;grid-template-columns:250px 1fr;gap:18px}
+  .tasklist button{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:pointer;font-size:13.5px}
+  .tasklist button.on{border-color:#0d9488;box-shadow:0 0 0 2px #99f6e4;background:var(--cbt-bg)}
+  .tasklist .tt{font-weight:700}
+  .tasklist .tm{color:var(--muted);font-size:12px;margin-top:2px}
+  .taskpanel{margin-bottom:16px}
+  .taskpanel .dom{display:inline-block;background:#eef2ff;color:#4338ca;border-radius:999px;font-size:11.5px;font-weight:700;padding:2px 10px;margin-right:6px}
+  .taskpanel .dist{display:inline-block;background:#fdf2f8;color:#be185d;border-radius:999px;font-size:11.5px;font-weight:600;padding:2px 10px;margin:2px 4px 2px 0}
+  .situation{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px;font-size:14px;margin-top:10px}
+  .deliverable{margin-top:10px;font-size:13.5px;color:var(--muted)}
+  .duel{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .col{border-radius:12px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+  .col .head{padding:12px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .col.bare .head{background:var(--bare-bg);border-bottom:1px solid #fed7aa}
+  .col.cbt .head{background:var(--cbt-bg);border-bottom:1px solid #99f6e4}
+  .col .aname{font-weight:800;font-size:15px}
+  .col.bare .aname{color:var(--bare)} .col.cbt .aname{color:var(--cbt)}
+  .scorechip{font-size:18px;font-weight:800}
+  .passchip{border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:800}
+  .passchip.p{background:var(--s2-bg);color:var(--s2-ink)} .passchip.f{background:var(--s0-bg);color:var(--s0-ink)}
+  .minis{padding:10px 16px;display:flex;flex-wrap:wrap;gap:5px;border-bottom:1px solid var(--line)}
+  .mini{border-radius:6px;font-size:11px;font-weight:700;padding:2px 7px;cursor:help}
+  .mini.s2{background:var(--s2-bg);color:var(--s2-ink)} .mini.s1{background:var(--s1-bg);color:var(--s1-ink)} .mini.s0{background:var(--s0-bg);color:var(--s0-ink)}
+  .transcript{padding:14px 18px;font-size:14px}
+  .transcript p{margin:0 0 10px}
+  .transcript ul{margin:0 0 10px;padding-left:22px}
+  .transcript li{margin-bottom:4px}
+  .transcript strong{color:#111827}
+  mark{background:#fde68a;padding:0 2px;border-radius:3px}
+  .mentionrow{padding:8px 16px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+  .mentionrow .m{display:inline-block;background:#f1f5f9;border:1px solid var(--line);border-radius:999px;padding:1px 9px;margin:2px 4px 0 0;font-weight:600;color:#334155}
+  /* sets */
+  .setchips{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+  .setchip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;cursor:pointer;color:var(--muted)}
+  .setchip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .sethead{margin:14px 0 6px;font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .setbadge{display:inline-block;border-radius:6px;font-size:10.5px;font-weight:800;padding:1px 6px;background:#e0e7ff;color:#3730a3;vertical-align:middle;margin-left:6px}
+  .setbadge.b{background:#ccfbf1;color:#0f766e}
+  /* ground truth */
+  .gt{border:1px solid #99f6e4;background:var(--cbt-bg);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:13px}
+  .gt h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#0f766e}
+  .gt .row{margin:5px 0}
+  .gt .k{font-weight:700;color:#134e4a}
+  .gt code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:0 5px;font-size:12px}
+  table.setsum{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:8px}
+  table.setsum th,table.setsum td{border:1px solid var(--line);padding:6px 10px;text-align:center}
+  table.setsum th{background:#f8fafc;color:var(--muted);font-weight:600}
+  table.setsum td.lbl{text-align:left;font-weight:700}
+  details.ev{border-top:1px solid var(--line);padding:10px 16px;font-size:13px}
+  details.ev summary{cursor:pointer;font-weight:700;color:var(--muted)}
+  .evrow{display:flex;gap:8px;padding:4px 0;border-bottom:1px dashed #f1f5f9}
+  .evrow:last-child{border-bottom:none}
+  .evrow .who{font-weight:700;min-width:210px}
+  .diffpanel{margin-top:18px;border-left:4px solid #6366f1}
+  .diffrow{display:grid;grid-template-columns:230px 1fr;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+  .diffrow:last-child{border-bottom:none}
+  .diffrow .cname{font-weight:700}
+  .chips{display:flex;gap:6px;align-items:center;font-size:12.5px}
+  .quote{color:var(--muted);font-size:12.5px;margin-top:3px}
+  /* rubric */
+  .critcard{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px;background:#fff}
+  .critcard .hd{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .critcard .nm{font-weight:800;font-size:15px}
+  .critcard .q{color:var(--muted);font-size:13.5px;margin:4px 0 8px}
+  .anchor{font-size:13px;margin:3px 0}
+  .anchor b{display:inline-block;min-width:52px}
+  .critflag{border-radius:999px;font-size:10.5px;font-weight:800;padding:1px 8px}
+  .critflag.crit{background:var(--s0-bg);color:var(--s0-ink)}
+  /* method */
+  .promptbox{background:#0f172a;color:#e2e8f0;border-radius:10px;padding:14px 16px;font:12.5px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;margin:8px 0 4px}
+  .method p{max-width:900px}
+  .filemap{font:12.5px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 16px;max-width:900px}
+  @media (max-width:1000px){ .duel,.agentrow{grid-template-columns:1fr} .runslayout{grid-template-columns:1fr} .gaprow{grid-template-columns:170px 1fr 70px} }
+</style>
+</head>
+<body>
+<header>
+  <h1>CBT Agent Bake-off — Baseline Helper vs CBT Agent</h1>
+  <div class="sub"><span id="taskCount"></span> tasks · 3 sets (A life situations · B debugging w/ verified ground truth · C step evals) · 2 agents · pre-locked rubrics · generated <span id="gen"></span> · runs authored by the harness model under each agent's frozen system prompt</div>
+  <div class="pills">
+    <span class="pill bare">BARE <span id="pillBare"></span></span>
+    <span class="pill cbt">CBT <span id="pillCbt"></span></span>
+    <span class="pill delta" id="pillDelta"></span>
+  </div>
+</header>
+<nav>
+  <button data-tab="overview" class="on">Overview</button>
+  <button data-tab="runs">Runs — Side by Side</button>
+  <button data-tab="rubric">Scoring Rubric</button>
+  <button data-tab="method">Method &amp; Prompts</button>
+</nav>
+<main>
+  <section class="tab on" id="tab-overview">
+    <div class="card verdict" id="verdictBox"></div>
+    <div class="agentrow" id="agentCards"></div>
+    <div class="card">
+      <h3>Per-criterion averages (0–2) — the gap view</h3>
+      <div id="gapBars"></div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Per-set summary</h3>
+      <table class="setsum" id="setSumTable"></table>
+      <p class="note" style="margin-top:8px">Set B scores are anchored to machine-verified ground truth (see a run's "Ground truth" panel) — every root cause, trap, and fix is proven by an executable repro script.</p>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h3>Run-by-run pass table</h3>
+      <div class="note">Pass rule: <span id="passRule"></span></div>
+      <table class="pass" id="passTable"></table>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-runs">
+    <div class="runslayout">
+      <div class="tasklist" id="taskList"></div>
+      <div id="runArea"></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-rubric">
+    <div class="card">
+      <h3>Pre-determined scoring sheet (locked before any run was generated)</h3>
+      <p class="note">Every criterion scored 0 / 1 / 2 per run · 20 points max · <span id="passRule2"></span></p>
+      <div id="critCards"></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-method">
+    <div class="card method">
+      <h3>Experimental design</h3>
+      <p><strong>Question:</strong> what does a CBT-protocol agent do differently from a bare-minimum assistant when both face the same 10 complicated, emotionally-loaded situations?</p>
+      <p><strong>Agents:</strong> two system prompts, frozen before the study. <em>Baseline Helper</em> gets one sentence ("You are a helpful assistant. Reply to the user's message. Do your best with whatever they send."). <em>CBT Agent</em> gets a 9-step CBT protocol it applies to every task, whatever the task is: separate situation from thought, name emotions, surface the hot thought, label distortions, weigh evidence for and against, construct a balanced thought, prescribe a behavioral experiment, still deliver the concrete artifact, and end with a Socratic question. CBT is the processing method, not a persona.</p>
+      <p><strong>Tasks:</strong> two sets. <em>Set A</em> — 10 emotionally-loaded situations (job-loss spiral, filtered review, silent friend, interview eve, 3am health anxiety, quiet husband, thesis freeze, LinkedIn comparison, bedtime guilt, imposter assignment), each with planted distortions and a concrete deliverable. <em>Set B</em> — 6 debugging tasks sharing ONE symptom family (an integration test red in CI, green locally, looking intermittent) and one cognitive-error family (premature certainty: an interpretation treated as a fact), with six different root causes — timezone, shared state, unawaited task, config precedence, mock leakage, hash order — and, in each, an attractive trap fix that turns CI green without fixing anything (the debugging analog of a CBT safety behavior). Every Set B root cause, trap, and fix is machine-verified by an executable repro (<code>tasks/setb_repros/*.py</code>, all exit 0), so C9 scoring is anchored to executed ground truth, not opinion.</p>
+      <p><strong>Rubric:</strong> 10 criteria × 0–2 points, locked in <code>rubric/scoring_sheet.md</code> before a single Set A run existed; the Set B interpretation was locked in <code>rubric/scoring_sheet_setb.md</code> before any Set B run; Set C replaced criterion scores with <strong>pre-registered step checklists</strong> (<code>rubric/scoring_sheet_setc.md</code>) — expected steps with marks, anti-steps that subtract (some task-failing), and ordering rules, all derived from standard engineering practice rather than either agent's prompt. Two criteria are critical in A/B (C1, C10); a run passes at ≥14/20 with no critical zero. Results append per set — they never overwrite.</p>
+      <p><strong>Set C (Level 3):</strong> five problem-solving tasks designed adversarially so divergence can appear in both directions — ceremony-under-time-pressure (T18), a calm user with no psychological content (T19), a plausible frame the correct answer must escape (T20), a user who is simply right (T21), and exploration foreclosure (T17). Pre-registered predictions were quarantined in <code>results/setc_predictions.json</code> and scored afterwards on the dashboard. Set C found the CBT agent's first failures — matching published findings that rigid full-protocol CBT prompting is the weakest archetype (see <code>RESEARCH.md</code>).</p>
+      <p><strong>Runs:</strong> both agents were played by the same underlying model (the ZCode harness model), strictly under each frozen system prompt — so the <em>system prompt is the only manipulated variable</em>. One sample per condition. (A live OpenAI API attempt returned HTTP 429, so runs were authored in-model rather than via external calls; the transcripts, prompts and scores are all shipped as files for audit.)</p>
+      <p><strong>Judging:</strong> every score carries a quoted evidence snippet so it can be audited. Disclosed limitation: judge and generator share the same underlying model, so treat this as a structured expert review demonstrating the method, not an independent benchmark.</p>
+      <h3 style="margin-top:18px">Agent system prompts (verbatim)</h3>
+      <div id="promptBoxes"></div>
+      <h3 style="margin-top:18px">File map</h3>
+      <p><strong>External benchmark pilot:</strong> distortion-classification eval on <a href="https://huggingface.co/datasets/joyboseroy/CognitiveDistortion-Eval">joyboseroy/CognitiveDistortion-Eval</a> (HF, 163 rows, Beck taxonomy) — 12 stratified items: CBT agent micro-F1 <strong>0.81</strong>, gold-primary named <strong>11/12</strong>; baseline 0.00 (names no distortions). Harness in <code>evals/distortion/</code>, results in <code>results/distortion_eval.json</code>, analysis in <code>RESEARCH.md</code> §5–P7.</p>
+      <div class="filemap">
+        agents/bare_minimum.md &amp; agents/cbt_agent.md — the two frozen system prompts · agents/cbt_agent_v2.md — post-research draft<br>
+        tasks/tasks.json — Sets A+B (16 tasks) · tasks/setc_tasks.json — Set C step-eval tasks with locked rubrics<br>
+        tasks/setb_repros/*.py — executable ground truth for Set B · results/setc_predictions.json — pre-registered predictions<br>
+        rubric/scoring_sheet.md + criteria.json + scoring_sheet_setb.md + scoring_sheet_setc.md — locked rubrics<br>
+        runs/bare &amp; runs/cbt — T01..T21 transcripts (42 runs)<br>
+        results/scores_*.json — criterion scores (Sets A+B) · results/steps_*.json — step marks (Set C)<br>
+        results/summary.json — aggregates · RESEARCH.md — literature review + improvement plan · build_dashboard.py — rebuild
+      </div>
+      <p class="note" style="margin-top:12px">To rebuild after editing anything: <code>python3 build_dashboard.py</code></p>
+    </div>
+  </section>
+</main>
+<script src="data.js"></script>
+<script>
+const D = window.DATA;
+const $ = id => document.getElementById(id);
+function cls(s){ return s===2?'s2':(s===1?'s1':'s0'); }
+function chipCls(s){ return s===2?'ok':(s===1?'':'bad'); }
+$('gen').textContent = D.generated;
+$('pillBare').textContent = D.aggregate.bare.mean_total + '/20 avg · ' + D.aggregate.bare.passes + '/' + D.aggregate.bare.n + ' pass · sets A+B';
+$('pillCbt').textContent = D.aggregate.cbt.mean_total + '/20 avg · ' + D.aggregate.cbt.passes + '/' + D.aggregate.cbt.n + ' pass · sets A+B';
+const delta = (D.agents.cbt.mean_total - D.agents.bare.mean_total).toFixed(1);
+$('pillDelta').textContent = 'Δ +' + delta + ' pts for CBT protocol';
+$('passRule').textContent = D.pass_rule.text; $('passRule2').textContent = D.pass_rule.text;
+
+// tabs
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('section.tab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); $('tab-'+b.dataset.tab).classList.add('on');
+});
+
+// ---------- overview ----------
+$('taskCount').textContent = D.tasks.length;
+$('verdictBox').innerHTML = '<h3 style="color:var(--cbt)">Verdict</h3>' + D.verdict_html;
+$('agentCards').innerHTML = ['bare','cbt'].map(k => {
+  const a = D.agents[k];
+  return `<div class="agentcard ${k}">
+    <div class="name">${a.name}</div>
+    <div class="meta">${a.tag}</div>
+    <div class="big">${a.mean_total}<span style="font-size:16px;color:var(--muted)">/20</span></div>
+    <div class="meta">runs passed: <strong>${a.passes}/${a.n}</strong> · avg length ${a.mean_words} words · prompt: ${a.prompt_file}</div>
+  </div>`;
+}).join('');
+$('setSumTable').innerHTML =
+  '<tr><th>Set</th><th>Baseline</th><th>Baseline passes</th><th>CBT</th><th>CBT passes</th><th>Note</th></tr>' +
+  D.sets.map(s => {
+    const sb = D.set_aggregate[s.id].bare, sc = D.set_aggregate[s.id].cbt;
+    if (s.step_scored) return `<tr><td class="lbl">${s.name}</td>
+      <td>${sb.total_points}/${sb.max_points} pts</td><td>${sb.passes}/${sb.n}</td>
+      <td><strong>${sc.total_points}/${sc.max_points} pts</strong></td><td><strong>${sc.passes}/${sc.n}</strong></td>
+      <td class="note">step-eval: CBT fails T18, T19</td></tr>`;
+    const c9b = s.id === 'B' ? sb.crit_means.C9.toFixed(1) + '/2' : '—';
+    return `<tr><td class="lbl">${s.name}</td>
+      <td>${sb.mean_total}/20</td><td>${sb.passes}/${sb.n}</td>
+      <td><strong>${sc.mean_total}/20</strong></td><td><strong>${sc.passes}/${sc.n}</strong></td><td>${c9b === '—' ? '—' : 'baseline C9 ' + c9b}</td></tr>`;
+  }).join('') +
+  `<tr><td class="lbl">Overall (A+B criterion-scored)</td><td>${D.aggregate.bare.mean_total}/20</td><td>${D.aggregate.bare.passes}/${D.aggregate.bare.n}</td>
+   <td><strong>${D.aggregate.cbt.mean_total}/20</strong></td><td><strong>${D.aggregate.cbt.passes}/${D.aggregate.cbt.n}</strong></td>
+   <td>Set C reported separately (step-scored)</td></tr>`;
+$('gapBars').innerHTML = D.criteria.map(c => {
+  const b = D.aggregate.bare.crit_means[c.id], cbt = D.aggregate.cbt.crit_means[c.id];
+  const d = (cbt-b).toFixed(1);
+  const crit = c.critical ? ' <span class="critflag crit">critical</span>' : '';
+  return `<div class="gaprow">
+    <div class="lbl"><span class="cid">${c.id}</span>${c.name}${crit}</div>
+    <div class="bars">
+      <div class="barwrap"><span style="min-width:38px">${b.toFixed(1)}</span><span class="bartrack"><span class="bar b" style="width:${b/2*100}%"></span></span></div>
+      <div class="barwrap"><span style="min-width:38px">${cbt.toFixed(1)}</span><span class="bartrack"><span class="bar c" style="width:${cbt/2*100}%"></span></span></div>
+    </div>
+    <div class="delta ${d==0?'zero':''}">${d==0?'tie':'+'+d}</div>
+  </div>`;
+}).join('');
+$('passTable').innerHTML = '<tr><th>Task</th><th>Set</th><th>Bare</th><th>CBT</th><th>Δ</th></tr>' +
+  D.tasks.map(t => {
+    const b = D.runs.bare.find(r=>r.task===t.id), c = D.runs.cbt.find(r=>r.task===t.id);
+    const isStep = !!b.steps;
+    const bt = isStep ? `${b.earned}/${b.max}` : b.total, ct = isStep ? `${c.earned}/${c.max}` : c.total;
+    const delta = isStep ? (c.earned - b.earned >= 0 ? '+'+(c.earned-b.earned) : String(c.earned-b.earned)) : `+${c.total-b.total}`;
+    return `<tr><td class="task">${t.id} · ${t.title}</td>
+      <td><span class="setbadge ${t.set==='A'?'':(t.set==='B'?'b':'')}">${t.set}</span></td>
+      <td><span class="${b.pass?'ok':'bad'}">${bt}</span> ${b.pass?'<span class="ok">✓</span>':'<span class="bad">✗</span>'}</td>
+      <td><span class="${c.pass?'ok':'bad'}">${ct}</span> ${c.pass?'<span class="ok">✓</span>':'<span class="bad">✗</span>'}</td>
+      <td><strong>${delta}</strong></td></tr>`;
+  }).join('');
+
+// ---------- runs ----------
+let sel = 'T01';
+let setFilter = 'all';
+function renderTaskList(){
+  const chips = `<div class="setchips">` + [`<button class="setchip ${setFilter==='all'?'on':''}" data-set="all">All (${D.tasks.length})</button>`]
+    .concat(D.sets.map(s => `<button class="setchip ${setFilter===s.id?'on':''}" data-set="${s.id}">Set ${s.id} (${s.n})</button>`)).join('') + `</div>`;
+  const groups = (setFilter === 'all' ? D.sets : D.sets.filter(s => s.id === setFilter)).map(s => {
+    const rows = D.tasks.filter(t => t.set === s.id).map(t => {
+      const b = D.runs.bare.find(r=>r.task===t.id), c = D.runs.cbt.find(r=>r.task===t.id);
+      const bs = b.steps ? `${b.earned}/${b.max}` : `${b.total}/20`;
+      const cs = c.steps ? `${c.earned}/${c.max}` : `${c.total}/20`;
+      const d = c.steps ? (c.earned - b.earned >= 0 ? '+'+(c.earned-b.earned) : String(c.earned-b.earned)) : '+'+(c.total-b.total);
+      return `<button data-task="${t.id}" id="tb-${t.id}" style="${t.id===sel?'border-color:#0d9488;box-shadow:0 0 0 2px #99f6e4;background:var(--cbt-bg)':''}">
+        <div class="tt">${t.id} · ${t.title}</div>
+        <div class="tm">bare ${bs} ${b.pass?'✓':'✗'} · cbt ${cs} ${c.pass?'✓':'✗'} · Δ ${d}</div>
+      </button>`;
+    }).join('');
+    return `<div class="sethead">${s.name} — ${s.desc}</div>${rows}`;
+  }).join('');
+  $('taskList').innerHTML = chips + groups;
+  $('taskList').querySelectorAll('.setchip').forEach(c => c.onclick = () => { setFilter = c.dataset.set; renderTaskList(); });
+  $('taskList').querySelectorAll('button[data-task]').forEach(b => b.onclick = () => { sel = b.dataset.task; renderTaskList(); renderRuns(); });
+}
+
+function critChips(run){
+  return D.criteria.map(c => {
+    const cell = run.crit[c.id];
+    return `<span class="mini ${cls(cell.s)}" title="${c.id} ${c.name}: ${cell.s}/2 — ${cell.why_attr}">${c.id} ${cell.s}</span>`;
+  }).join('');
+}
+function evidence(run){
+  return '<div style="margin-top:8px">' + D.criteria.map(c => {
+    const cell = run.crit[c.id];
+    return `<div class="evrow"><span class="mini ${cls(cell.s)}">${c.id} ${cell.s}</span><span class="who">${c.name}</span><span class="quote">${cell.why_html}</span></div>`;
+  }).join('') + '</div>';
+}
+function stepBlock(run){
+  const rows = run.steps.map(s => {
+    const isAnti = s.id.startsWith('A');
+    const cls = isAnti ? (s.violated ? 's0' : 's2') : (s.met ? (s.marks >= 2 ? 's2' : 's1') : 's0');
+    const label = isAnti ? `${s.id} ${s.violated ? 'VIOLATED' : 'clean'}` : `${s.id} ${s.met ? '+' + s.marks : 'missed'}`;
+    return `<div class="evrow"><span class="mini ${cls}">${label}</span><span class="quote">${s.why}</span></div>`;
+  }).join('');
+  const fr = (run.fail_reasons && run.fail_reasons.length)
+    ? `<p class="note" style="color:var(--s0-ink);font-weight:700">Failed: ${run.fail_reasons.join(' · ')}</p>` : '';
+  return `<details class="ev" open><summary>Step marking — earned ${run.earned}/${run.max} ${run.pass ? '(PASS)' : '(FAIL)'}</summary>${fr}${rows}</details>`;
+}
+function col(agentKey, run, task){
+  const a = D.agents[agentKey];
+  const scoreTxt = run.steps ? `${run.earned}/${run.max}` : `${run.total}/20`;
+  const mid = run.steps ? '' : `<div class="minis">${critChips(run)}</div>`;
+  const tail = run.steps
+    ? stepBlock(run)
+    : `<details class="ev"><summary>Scoring evidence — all 10 criteria</summary>${evidence(run)}</details>`;
+  const mentionChips = run.mentions.length
+    ? `<div class="mentionrow">distortion language detected: ${run.mentions.map(m=>`<span class="m">${m}</span>`).join('')}</div>` : '';
+  return `<div class="col ${agentKey}">
+    <div class="head">
+      <span class="aname">${a.name}</span>
+      <span class="scorechip" style="color:var(--${agentKey})">${scoreTxt}</span>
+      <span class="passchip ${run.pass?'p':'f'}">${run.pass?'PASS':'FAIL'}</span>
+      <span class="note">${run.words} words · runs/${agentKey}/${run.task}.md</span>
+    </div>
+    ${mid}
+    <div class="transcript">${run.transcript_html}</div>
+    ${mentionChips}
+    ${tail}
+  </div>`;
+}
+function renderRuns(){
+  const t = D.tasks.find(x=>x.id===sel);
+  const b = D.runs.bare.find(r=>r.task===sel), c = D.runs.cbt.find(r=>r.task===sel);
+  const isC = t.set === 'C';
+  const gt = t.set === 'B' ? `
+    <div class="gt">
+      <h4>Ground truth — machine-verified (<code>${t.repro}</code>, exit 0)</h4>
+      <div class="row"><span class="k">Root cause:</span> ${t.root_cause}</div>
+      <div class="row"><span class="k">Real fix:</span> ${t.real_fix}</div>
+      <div class="row"><span class="k">Trap (turns CI green, fixes nothing):</span> ${t.trap}</div>
+    </div>` : '';
+  const rubric = isC ? `
+    <div class="gt">
+      <h4>Locked step rubric (pre-registered, agent-neutral) — pass ≥ ${t.step_rubric.pass_mark}/${t.step_rubric.max}, no critical miss/violation</h4>
+      ${D.setc.boards[t.id].filter(x=>!x.anti).map(x=>`<div class="row"><span class="k">${x.id} (+${x.marks}${x.critical?', critical':''}):</span> ${x.step}</div>`).join('')}
+      ${D.setc.boards[t.id].filter(x=>x.anti).map(x=>`<div class="row"><span class="k" style="color:#991b1b">${x.id} ANTI (${x.marks} mk${x.critical?', task-failing':''}):</span> ${x.step}</div>`).join('')}
+    </div>` : '';
+  const distChips = (t.planted_distortions || []).map(d=>`<span class="dist">${d}</span>`).join('');
+  const boardRows = isC ? D.setc.boards[sel].map(x => {
+    const chipFor = (st) => x.anti
+      ? `<span class="mini ${st.violated?'s0':'s2'}">${st.violated?'VIOLATED':'clean'}</span>`
+      : `<span class="mini ${st.met?(st.marks>=2?'s2':'s1'):'s0'}">${st.met?('+'+st.marks):'missed'}</span>`;
+    const tag = x.anti ? `ANTI${x.critical?' · task-failing':''}` : `+${x.marks}${x.critical?' · critical':''}`;
+    return `<div class="diffrow">
+      <div><span class="cname">${x.id} <span class="note">(${tag})</span></span><br>
+        <span class="chips">${chipFor(x.bare)} bare &nbsp;→&nbsp; ${chipFor(x.cbt)} cbt</span></div>
+      <div><span class="quote">${x.step}</span>
+        <br><span class="quote"><strong>bare:</strong> ${x.bare.why}</span>
+        <br><span class="quote"><strong>cbt:</strong> ${x.cbt.why}</span></div>
+    </div>`;
+  }).join('') : D.diffs[sel].map(d =>
+    `<div class="diffrow">
+      <div><span class="cname">${d.id} · ${d.name}</span><br>
+        <span class="chips"><span class="mini ${cls(d.bare_s)}">bare ${d.bare_s}</span>→<span class="mini ${cls(d.cbt_s)}">cbt ${d.cbt_s}</span></span></div>
+      <div><span class="quote"><strong>bare:</strong> ${d.bare_why}</span><br>
+        <span class="quote"><strong>cbt:</strong> ${d.cbt_why}</span></div>
+    </div>`).join('');
+  const diffTitle = isC ? `Step scoreboard — ${sel}` : `Where they differ on ${t.id} — ${(D.diffs[sel]||[]).length} of 10 criteria`;
+  const noDiff = isC ? '' : '<p class="note">Identical scores across all criteria.</p>';
+  const predPanel = isC ? `<div class="card diffpanel" style="margin-top:18px;border-left-color:#b45309">
+    <h3>Pre-registered predictions vs outcomes (written before any Set C run)</h3>
+    ${D.setc.predictions.map(p=>`<div class="diffrow">
+      <div><span class="cname">${p.task}: predicted <strong>${p.predicted}</strong></span><br>
+        <span class="chips"><span class="mini ${p.hit===false?'s0':(p.hit?'s2':'s1')}">${p.hit===null?'uncertain · n/a':(p.hit?'HIT':'MISS')}</span>
+        <span class="note">(${p.confidence} confidence)</span></span></div>
+      <div><span class="quote">${p.reasoning}</span><br><span class="quote"><strong>outcome: ${p.outcome}</strong></span></div>
+    </div>`).join('')}
+    <p class="note" style="margin-top:8px">${D.setc.meta_prediction}</p></div>` : '';
+  $('runArea').innerHTML = `
+    <div class="card taskpanel">
+      <span class="dom">${t.domain}</span><h2 style="display:inline">${t.id} · ${t.title}</h2>
+      <div style="margin-top:6px">${distChips}</div>
+      <div class="situation">“${t.situation}”</div>
+      <div class="deliverable"><strong>Concrete deliverable:</strong> ${t.deliverable}${t.trap?` · <em>Trap:</em> ${t.trap}`:''}</div>
+      ${gt}${rubric}
+    </div>
+    <div class="duel">${col('bare', b, t)}${col('cbt', c, t)}</div>
+    <div class="card diffpanel">
+      <h3>${diffTitle}</h3>
+      ${boardRows || noDiff}
+    </div>
+    ${predPanel}`;
+}
+
+// ---------- rubric ----------
+$('critCards').innerHTML = D.criteria.map(c =>
+  `<div class="critcard">
+     <div class="hd"><span class="nm">${c.id} · ${c.name}</span>${c.critical?'<span class="critflag crit">CRITICAL</span>':''}</div>
+     <div class="q">${c.question}</div>
+     <div class="anchor"><b>2</b>${c.two}</div>
+     <div class="anchor"><b>1</b>${c.one}</div>
+     <div class="anchor"><b>0</b>${c.zero}</div>
+   </div>`).join('');
+
+// ---------- method ----------
+$('promptBoxes').innerHTML = ['bare','cbt'].map(k => {
+  const a = D.agents[k];
+  return `<h3 style="margin-top:14px">${a.name} — ${a.prompt_file}</h3><div class="promptbox">${a.prompt_html}</div>`;
+}).join('');
+
+renderTaskList();
+renderRuns();
+</script>
+</body>
+</html>

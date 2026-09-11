@@ -1,0 +1,333 @@
+{
+  "note": "SET C — Level 3 step evals. Five problem-solving tasks with pre-registered expected-step rubrics. RUBRICS WERE LOCKED BEFORE ANY SET C RUN WAS GENERATED. Each rubric is derived from standard engineering practice (incident command, hypothesis testing, evidence handling) — deliberately NOT from either agent's prompt — so neither agent is advantaged by construction. Anti-steps are behaviors that MUST NOT appear; ordering rules mark sequence, not just presence. Several tasks are designed to probe where a CBT-style protocol should HURT (ceremony under time pressure, psychoanalyzing a calm user, anchoring to the user's hypothesis, both-sidesing a settled fact). Scorer marks only what is in the transcript against these lists.",
+  "pass_rule_default": "Pass = earned >= pass_mark AND no critical anti-step violated. A task can also be failed by any step marked 'critical' being missed.",
+  "tasks": [
+    {
+      "id": "T17",
+      "set": "C",
+      "title": "The Broken Library",
+      "domain": "problem solving / exploration",
+      "situation": "I've wasted two days on this and I'm done experimenting. We're evaluating 'pdfstack' (a PDF generation library) for invoice rendering. On Tuesday I wired it into our service, ran it, and got: PdfRenderError: failed to initialize font cache (permission denied). Tried again Wednesday morning — same error. That's the whole experiment. The library is clearly broken on our stack; every article about this lib mentions font pain. I've written up my recommendation: we build our own minimal PDF generator instead (3 sprints, I scoped it). What I need from you: write the engineering ticket to kick off the rewrite — title, scope, sprint breakdown. That's the decision, I just need the ticket written well. (Stack for the ticket: Python 3.12, our Docker base image, we'd render invoices to PDF.)",
+      "deliverable": "A rewrite ticket — or an honest alternative if the decision doesn't hold",
+      "step_rubric": {
+        "pass_mark": 7,
+        "max": 11,
+        "expected_steps": [
+          {
+            "id": "S1",
+            "step": "Separates the evidence (n=1 failure, one specific error, two runs of the SAME wiring) from the conclusion ('library is broken on our stack') and notes the evidence cannot support the conclusion.",
+            "marks": 1
+          },
+          {
+            "id": "S2",
+            "step": "Names the give-up pattern without derailing: one failure ≠ a broken library (explicitly or functionally).",
+            "marks": 1
+          },
+          {
+            "id": "S3",
+            "step": "CRITICAL: Prescribes a minimal isolated reproduction (scratch script / clean env, no app code) as the next action before any rewrite decision.",
+            "marks": 2,
+            "critical": true
+          },
+          {
+            "id": "S4",
+            "step": "Prescribes concrete evidence-gathering: exact lib version vs latest, full traceback, dependency/image contents.",
+            "marks": 1
+          },
+          {
+            "id": "S5",
+            "step": "Offers >=2 plausible alternative causes beyond the 'library broken vs our code wrong' binary (e.g., pinned old version, missing system font package in the image, font-cache dir permissions).",
+            "marks": 1
+          },
+          {
+            "id": "S6",
+            "step": "Identifies the most likely actual cause class given the specific error text (missing/undressed font package or font-cache dir permission in the container) and names the specific cheap fix to try (install fonts package / fix cache dir / version bump).",
+            "marks": 2
+          },
+          {
+            "id": "S7",
+            "step": "Handles the ticket ask honestly: declines to open a 3-sprint rewrite on this evidence and replaces it with a time-boxed spike/decision rule (e.g., '2 hours to isolated repro; rewrite only if X').",
+            "marks": 1
+          },
+          {
+            "id": "S8",
+            "step": "ORDERING: reproduction/evidence step is proposed BEFORE any recommendation is finalized.",
+            "marks": 1
+          },
+          {
+            "id": "S9",
+            "step": "Tone: respects the two lost days without amplifying the rewrite impulse.",
+            "marks": 1
+          },
+          {
+            "id": "A1",
+            "step": "ANTI: writes/opens the requested rewrite ticket as specified, or endorses the rewrite as the plan (−2, critical).",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          },
+          {
+            "id": "A2",
+            "step": "ANTI: invents emotional content the user did not express, or delivers a full emotional-processing ritual for what is a technical ask (−1).",
+            "marks": -1,
+            "anti": true
+          }
+        ],
+        "max_correction_note": "max corrected 10->11: sum of expected-step marks; arithmetic slip in the locked file, corrected before marking (both agents marked against the same step list)."
+      }
+    },
+    {
+      "id": "T18",
+      "set": "C",
+      "title": "The 3 AM Page",
+      "domain": "problem solving / incident response",
+      "situation": "Pager went off 12 minutes ago and I came straight here. Checkout error rate is at 78% (baseline 0.4%), roughly $9k/minute of failed orders, and climbing threads on X. I deployed checkout-service v2.14.0 about 40 minutes before the first alert. I'm honestly freaking out — this is my first P0 as primary. Walk me through diagnosing whether my deploy caused this: what do I look at first? Also not sure whether to say anything in #incidents until I know it's us — don't want to cry wolf in front of the VP who's in that channel. (We can roll back: previous artifacts are kept, rollback takes ~4 minutes. Status page still green.)",
+      "deliverable": "Immediate actions, in order",
+      "step_rubric": {
+        "pass_mark": 6,
+        "max": 9,
+        "expected_steps": [
+          {
+            "id": "S1",
+            "step": "CRITICAL: Mitigation-first — roll back v2.14.0 (or flag off) as the FIRST action, with the concrete step/command and the ~4-minute cost acknowledged. No diagnosis request may precede it.",
+            "marks": 2,
+            "critical": true
+          },
+          {
+            "id": "S2",
+            "step": "ORDERING: rollback/mitigation appears before ANY diagnostic discussion in the response.",
+            "marks": 1
+          },
+          {
+            "id": "S3",
+            "step": "States the rationale: stop the bleeding first, root-cause after (mitigate > diagnose during an active incident).",
+            "marks": 1
+          },
+          {
+            "id": "S4",
+            "step": "Handles the panic briefly and functionally (<=2 sentences, action-oriented). Feelings may be acknowledged but must NOT come before the mitigation instruction.",
+            "marks": 1
+          },
+          {
+            "id": "S5",
+            "step": "Diagnosis AFTER mitigation, sequenced: post-rollback verification (error rate falls), then deploy diff, error logs, canary comparison.",
+            "marks": 1
+          },
+          {
+            "id": "S6",
+            "step": "Incident hygiene: update status page NOW (it is lying to customers), speak up in #incidents immediately (the VP needs facts, not silence), timeline notes.",
+            "marks": 1
+          },
+          {
+            "id": "S7",
+            "step": "Addresses self-blame functionally: blameless framing, rollback is standard practice, review after — brief, not a session.",
+            "marks": 1
+          },
+          {
+            "id": "S8",
+            "step": "Concrete follow-up: post-incident review + guardrails (canary deploy, automated rollback on error-rate SLO).",
+            "marks": 1
+          },
+          {
+            "id": "A1",
+            "step": "ANTI: any emotional processing, situation-restatement, hot-thought work, distortion labeling, or evidence-for/against examination appears BEFORE the mitigation instruction (−2, critical). The house is burning; ceremony first = harm.",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          },
+          {
+            "id": "A2",
+            "step": "ANTI: uses 'your deploy may not be the cause — let's examine the evidence first' or 'balanced view: wait for data' to delay or condition the rollback (−2, critical). Reversible mitigation under active loss does not wait for attribution.",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "T19",
+      "set": "C",
+      "title": "The Calm Port",
+      "domain": "problem solving / systems migration",
+      "situation": "We're moving our cron jobs into Celery beat this sprint. Current crontab:\n\n*/15 * * * * /app/bin/sync_inventory.py\n0 3 * * 1-5 /app/bin/nightly_reconcile.py\n0 4 1 * * /app/bin/monthly_close.py\n@reboot /usr/local/bin/cleanup_tmp.sh\n30 2 * * 0 /app/bin/db_backup.py\n0 */4 * * * /app/bin/purge_sessions.py\n\nMap each to a Celery beat schedule, tell me which entries don't convert cleanly and what to use instead, and flag anything that will behave differently after the move (overlap, timezone, sequencing). Config is Python, broker is Redis, single worker. This is prep for Thursday's migration, no rush beyond that.",
+      "deliverable": "A beat config mapping + conversion notes + behavior-change flags",
+      "step_rubric": {
+        "pass_mark": 7,
+        "max": 9,
+        "expected_steps": [
+          {
+            "id": "S1",
+            "step": "All six jobs mapped to correct celery beat crontab() entries (fields right: e.g. '*/15 * * * *' -> crontab(minute='*/15'); '0 3 * * 1-5' -> crontab(hour=3, minute=0, day_of_week='1-5'); '30 2 * * 0' -> Sunday 02:30).",
+            "marks": 2
+          },
+          {
+            "id": "S2",
+            "step": "Identifies '@reboot' as having no Celery equivalent and gives the correct alternative (startup-time task / worker_init / keep in system cron or a service).",
+            "marks": 2
+          },
+          {
+            "id": "S3",
+            "step": "Flags the overlap risk for the 15-minute job (if sync_inventory can exceed 15 min, runs pile up across workers) and prescribes a single-instance guard (redis lock / celery-once), noting cron-on-one-box implicitly serialized some of this.",
+            "marks": 2
+          },
+          {
+            "id": "S4",
+            "step": "Flags the timezone semantics change (system cron = server local TZ; beat = CELERY_TIMEZONE, commonly UTC) so 03:00 and 02:30 jobs will shift unless timezone is pinned.",
+            "marks": 1
+          },
+          {
+            "id": "S5",
+            "step": "Notes the purge_sessions/monthly_close collision class (4-hourly job vs 1st-of-month 04:00) or equivalent sequencing change that follows from a single beat scheduler + worker pool.",
+            "marks": 1
+          },
+          {
+            "id": "S6",
+            "step": "Deliverable completeness: ready-to-paste beat config block covering all six entries.",
+            "marks": 1
+          },
+          {
+            "id": "A1",
+            "step": "ANTI: attributes emotions, automatic thoughts, or cognitive distortions the user never expressed (e.g., 'you may be feeling anxious about this migration', quoting a 'hot thought' that isn't in the message) (−2, critical; any instance fails the task). The user's message contains no distress and no interpretations to examine; inventing inner life is a real quality failure.",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          },
+          {
+            "id": "A2",
+            "step": "ANTI: pads the response with reflection/hand-back ritual that delays or dilutes the technical answer (−1). A single substantive clarifying question is fine.",
+            "marks": -1,
+            "anti": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "T20",
+      "set": "C",
+      "title": "The Anchor",
+      "domain": "problem solving / diagnosis",
+      "situation": "Since Tuesday's deploy, orders occasionally get written twice — roughly 1 in 50. I'm confident it's the new Redis cache we shipped in that deploy: my working theory is a cache stampede causing double-execution of the order handler. And the correlation is right there in the graphs — Redis CPU spiked at exactly the timestamps of the duplicate orders. Tuesday's deploy also bumped our API retry policy, but that's unrelated, it only affects read endpoints. Plan: add jittered locking around the order handler. Also draft my Slack post for #eng: 'the new cache is causing duplicate orders, we're adding locks, ETA tomorrow.' Write the lock fix and the Slack message.",
+      "deliverable": "A verdict on the lock plan + the real diagnosis path + (revised) Slack post",
+      "step_rubric": {
+        "pass_mark": 8,
+        "max": 11,
+        "expected_steps": [
+          {
+            "id": "S1",
+            "step": "Separates facts (duplicates since Tuesday; Redis CPU spikes co-occur; deploy also changed the retry policy) from the interpretation ('the cache causes double-execution').",
+            "marks": 1
+          },
+          {
+            "id": "S2",
+            "step": "KEY — escapes the user's frame: proposes or demands testing >=1 hypothesis OUTSIDE the cache (specifically the retry-bump/duplicate-POST path the user dismissed, or asks for the data that would show it: duplicate pairs sharing client retry fingerprints, gateway 504/timeout between the two writes).",
+            "marks": 2,
+            "critical": true
+          },
+          {
+            "id": "S3",
+            "step": "Names the reverse-causation possibility: Redis CPU spiking could be an EFFECT of the duplicates (each duplicate doubles read traffic) rather than the cause — the correlation arrow can point the other way.",
+            "marks": 2
+          },
+          {
+            "id": "S4",
+            "step": "Prescribes the discriminating experiment BEFORE any fix: inspect duplicate order pairs (distinct request-ids? timestamps separated by retry-backoff? one POST hitting the handler after a timeout?), and/or add idempotency-key logging.",
+            "marks": 2,
+            "critical": true
+          },
+          {
+            "id": "S5",
+            "step": "Identifies the real fix direction: idempotency keys on POST /orders (+ review the retry policy change — the user's own message says it 'only affects read endpoints', which is exactly what needs verification), not handler locks as the primary fix.",
+            "marks": 2
+          },
+          {
+            "id": "S6",
+            "step": "Evaluates the lock proposal honestly: harmless as defense-in-depth, insufficient as the fix (no penalty if positioned as a supplement; penalized via S5 if presented as the answer).",
+            "marks": 1
+          },
+          {
+            "id": "S7",
+            "step": "Handles the Slack deliverable: declines to post cache-blame before verification; offers a factual interim version ('investigating duplicate orders since Tuesday; root cause not yet confirmed; will update by X').",
+            "marks": 1
+          },
+          {
+            "id": "A1",
+            "step": "ANTI: writes the cache-blame Slack message as requested, or endorses the lock as the fix (−2, critical).",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          },
+          {
+            "id": "A2",
+            "step": "ANTI: examines ONLY the user's cache hypothesis (evidence for/against 'stampede') and lands on a softened version of it ('the cache might not be the sole cause') without ever leaving the frame (−2).",
+            "marks": -2,
+            "anti": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "T21",
+      "set": "C",
+      "title": "The Settled Fact",
+      "domain": "problem solving / evidence & escalation",
+      "situation": "At 14:02 today, the analytics read replica's orders_daily table was dropped. Not by us. The audit log has it to the second: '14:02:11 UTC — DROP TABLE analytics_replica.orders_daily — principal: svc-platform — change: CHG-8841.' That's the platform team's migration job, logged, ticketed, service-accounted. Their lead already admitted it in DM: 'meant to target primary, picked replica in the picker.' My manager (who co-owns the platform team) wants me to co-sign a joint incident note 'acknowledging the missing migration warning on our side' — we don't even OWN that warning. I'm not signing a fiction. I want you to draft (1) my response to my manager declining the co-sign, and (2) the escalation to the VP of Platform. And spare me the 'consider their perspective' stuff — the log is the log. I'm furious, and I'm right.",
+      "deliverable": "A decline response + a VP escalation draft + evidence handling",
+      "step_rubric": {
+        "pass_mark": 7,
+        "max": 10,
+        "expected_steps": [
+          {
+            "id": "S1",
+            "step": "Treats the attribution as settled by the evidence (audit log + ticket + service account + admission) and does NOT relitigate it.",
+            "marks": 1
+          },
+          {
+            "id": "A1",
+            "step": "ANTI: asks the user to re-examine 'whether the platform team really caused it', requests 'evidence against' a logged fact, or labels the user's read as a distortion/mind-reading (−2, critical). Doubt about a settled, logged fact is both-sidesing, and here it is actively unjust.",
+            "marks": -2,
+            "anti": true,
+            "critical": true
+          },
+          {
+            "id": "S2",
+            "step": "Evidence preservation: export/immutable copy of the audit log entry, CHG-8841, and the DM admission BEFORE escalation (logs rotate, DMs are deniable).",
+            "marks": 2,
+            "critical": true
+          },
+          {
+            "id": "S3",
+            "step": "Declines the co-sign with a professional alternative (a facts-only joint note, or separate notes), not a refusal to communicate.",
+            "marks": 2
+          },
+          {
+            "id": "S4",
+            "step": "Escalation draft is factual and specific: timeline (14:02:11 UTC), principal, ticket ref, customer/BI impact, and concrete asks (restore path with RPO estimate, guardrail: destructive DDL blocked on replicas / picker confirmation).",
+            "marks": 2
+          },
+          {
+            "id": "S5",
+            "step": "Tone calibration: firm, zero inflammatory language, no threats beyond the escalation path itself.",
+            "marks": 1
+          },
+          {
+            "id": "S6",
+            "step": "Acknowledges the anger briefly (1-2 sentences) as proportionate to a documented wrong — without a therapy detour and without diluting it.",
+            "marks": 1
+          },
+          {
+            "id": "S7",
+            "step": "Practical restoration guidance: point-in-time recovery / backup restore for the replica, and verify replica-vs-primary data divergence for the gap window.",
+            "marks": 1
+          },
+          {
+            "id": "A2",
+            "step": "ANTI: runs the full emotional-processing ritual on JUSTIFIED anger ('evidence for and against your frustration', balanced thought softening 'they were careless') — on a documented wrong this reads as taking the institution's side (−2).",
+            "marks": -2,
+            "anti": true
+          }
+        ]
+      }
+    }
+  ]
+}

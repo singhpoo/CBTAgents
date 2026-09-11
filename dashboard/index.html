@@ -163,6 +163,10 @@
       <table class="setsum" id="setSumTable"></table>
       <p class="note" style="margin-top:8px">Set B scores are anchored to machine-verified ground truth (see a run's "Ground truth" panel) — every root cause, trap, and fix is proven by an executable repro script.</p>
     </div>
+    <div class="card" style="margin-top:18px" id="distortionCard">
+      <h3>External benchmark — distortion classification (Hugging Face: CognitiveDistortion-Eval, 163 rows)</h3>
+      <div id="distortionBody"></div>
+    </div>
     <div class="card" style="margin-top:18px">
       <h3>Run-by-run pass table</h3>
       <div class="note">Pass rule: <span id="passRule"></span></div>
@@ -273,6 +277,30 @@ $('gapBars').innerHTML = D.criteria.map(c => {
     <div class="delta ${d==0?'zero':''}">${d==0?'tie':'+'+d}</div>
   </div>`;
 }).join('');
+// external distortion benchmark panel
+if (D.distortion_eval) {
+  const de = D.distortion_eval;
+  const order = ['overgeneralization','arbitrary_inference','magnification','selective_abstraction','personalization','minimization'];
+  const names = {overgeneralization:'Overgeneralization', arbitrary_inference:'Arbitrary inference', magnification:'Magnification',
+                 selective_abstraction:'Selective abstraction (mental filter)', personalization:'Personalization', minimization:'Minimization'};
+  const agentRows = ['bare','cbt'].map(a => {
+    const v = de.agents[a];
+    return `<tr><td class="lbl">${D.agents[a].name}</td><td><strong>${v.micro_f1}</strong></td><td>${v.macro_f1}</td><td>${v.primary}</td></tr>`;
+  }).join('');
+  const classRows = order.filter(c => de.agents.cbt.per_class_f1[c] !== undefined)
+    .map(c => `<tr><td class="lbl">${names[c]}</td>
+      <td>${(de.agents.bare.per_class_f1[c] ?? 0).toFixed(2)}</td>
+      <td><strong>${de.agents.cbt.per_class_f1[c].toFixed(2)}</strong></td></tr>`).join('');
+  $('distortionBody').innerHTML = `
+    <p class="note">${de.dataset} · ${de.pilot} · Beck↔Burns label mapping in scorer</p>
+    <table class="setsum"><tr><th>Agent</th><th>micro-F1</th><th>macro-F1</th><th>gold-primary named</th></tr>${agentRows}</table>
+    <p style="margin:12px 0 4px;font-weight:700;font-size:13.5px">Per-class F1 — the baseline names no distortion labels at all:</p>
+    <table class="setsum"><tr><th>Class</th><th>Baseline</th><th>CBT Agent</th></tr>${classRows}</table>
+    <p class="note" style="margin-top:8px">Full per-item detail: <code>results/distortion_eval.json</code> · harness: <code>evals/distortion/</code> · analysis: <code>RESEARCH.md</code> §5</p>`;
+} else {
+  $('distortionCard').style.display = 'none';
+}
+
 $('passTable').innerHTML = '<tr><th>Task</th><th>Set</th><th>Bare</th><th>CBT</th><th>Δ</th></tr>' +
   D.tasks.map(t => {
     const b = D.runs.bare.find(r=>r.task===t.id), c = D.runs.cbt.find(r=>r.task===t.id);

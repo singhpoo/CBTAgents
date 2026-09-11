@@ -23,6 +23,14 @@ try:
     setc_predictions = json.loads((ROOT / "results/setc_predictions.json").read_text())
 except FileNotFoundError:
     setc_predictions = {"predictions": [], "meta_prediction": ""}
+try:
+    _dist = json.loads((ROOT / "results/distortion_eval.json").read_text())
+    distortion_summary = {"dataset": _dist["dataset"], "pilot": _dist["pilot"],
+                          "agents": {a: {"micro_f1": v["micro"]["f1"], "macro_f1": v["macro_f1"],
+                                         "primary": v["primary_hit_rate"], "per_class_f1": v["per_class_f1"]}
+                                     for a, v in _dist["agents"].items()}}
+except FileNotFoundError:
+    distortion_summary = None
 CRIT_BY_ID = {c["id"]: c for c in criteria}
 
 AGENTS = {
@@ -262,6 +270,7 @@ DATA = {
     "setc": {"boards": step_boards, "predictions": pred_board,
              "meta_prediction": setc_predictions.get("meta_prediction", ""),
              "outcomes": setc_outcomes},
+    "distortion_eval": distortion_summary,
     "gaps": gaps,
     "verdict_html": verdict,
 }

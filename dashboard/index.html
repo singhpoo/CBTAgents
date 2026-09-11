@@ -146,7 +146,8 @@
 </header>
 <nav>
   <button data-tab="overview" class="on">Overview</button>
-  <button data-tab="runs">Runs — Side by Side</button>
+  <button data-tab="compare">Compare — Side by Side</button>
+  <button data-tab="runs">Runs — Full Transcripts</button>
   <button data-tab="rubric">Scoring Rubric</button>
   <button data-tab="method">Method &amp; Prompts</button>
 </nav>
@@ -172,6 +173,10 @@
       <div class="note">Pass rule: <span id="passRule"></span></div>
       <table class="pass" id="passTable"></table>
     </div>
+  </section>
+
+  <section class="tab" id="tab-compare">
+    <div class="card" id="compareBody"></div>
   </section>
 
   <section class="tab" id="tab-runs">
@@ -463,8 +468,68 @@ $('promptBoxes').innerHTML = ['bare','cbt'].map(k => {
   return `<h3 style="margin-top:14px">${a.name} — ${a.prompt_file}</h3><div class="promptbox">${a.prompt_html}</div>`;
 }).join('');
 
+// ---------- compare (side-by-side matrix across all sets + benchmark) ----------
+function renderCompare(){
+  let html = `<h3>Every task, both agents, side by side</h3>
+    <p class="note">Δ = CBT score minus baseline score. "Open run" jumps to the full side-by-side transcripts for that task.</p>`;
+  for (const s of D.sets){
+    const sb = D.set_aggregate[s.id].bare, sc = D.set_aggregate[s.id].cbt;
+    const bs = s.step_scored ? `${sb.total_points}/${sb.max_points} pts (${sb.passes}/${s.n} pass)` : `${sb.mean_total}/20 (${sb.passes}/${s.n} pass)`;
+    const cs = s.step_scored ? `${sc.total_points}/${sc.max_points} pts (${sc.passes}/${s.n} pass)` : `${sc.mean_total}/20 (${sc.passes}/${s.n} pass)`;
+    html += `<div class="sethead" style="margin-top:16px">${s.name} <span class="note">— baseline ${bs} vs CBT ${cs}</span></div>`;
+    html += `<table class="setsum"><tr><th style="text-align:left">Task</th><th>Baseline</th><th>CBT Agent</th><th>Δ</th><th style="text-align:left">Biggest difference</th><th></th></tr>`;
+    for (const t of D.tasks.filter(x => x.set === s.id)){
+      const b = D.runs.bare.find(r=>r.task===t.id), c = D.runs.cbt.find(r=>r.task===t.id);
+      let bs, cs, delta, key;
+      if (b.steps){
+        bs = `${b.earned}/${b.max} ${b.pass?'✓':'✗'}`;
+        cs = `${c.earned}/${c.max} ${c.pass?'✓':'✗'}`;
+        delta = (c.earned - b.earned >= 0 ? '+' : '') + (c.earned - b.earned);
+        let best = null;
+        for (const x of D.setc.boards[t.id]){
+          const bBad = x.anti ? x.bare.violated : !x.bare.met;
+          const cBad = x.anti ? x.cbt.violated : !x.cbt.met;
+          if ((bBad?1:0) - (cBad?1:0) > 0 && (!best || x.marks > best.marks)) best = x;
+        }
+        key = best ? `<span class="mini s0">${best.id}</span> ${best.step.slice(0, 110)}…` : '<span class="note">no step differences</span>';
+      } else {
+        bs = `${b.total}/20 ${b.pass?'✓':'✗'}`;
+        cs = `${c.total}/20 ${c.pass?'✓':'✗'}`;
+        delta = '+' + (c.total - b.total);
+        const top = (D.diffs[t.id] || [])[0];
+        key = top ? `<span class="mini ${cls(top.bare_s)}">${top.bare_s}</span>→<span class="mini ${cls(top.cbt_s)}">${top.cbt_s}</span> ${top.name}` : '—';
+      }
+      html += `<tr><td class="lbl">${t.id} · ${t.title}</td>
+        <td class="${b.pass?'ok':'bad'}">${bs}</td>
+        <td class="${c.pass?'ok':'bad'}">${cs}</td>
+        <td><strong>${delta}</strong></td>
+        <td style="text-align:left;font-size:12.5px">${key}</td>
+        <td><button class="setchip" data-open="${t.id}">open run →</button></td></tr>`;
+    }
+    html += `</table>`;
+  }
+  if (D.distortion_eval){
+    const de = D.distortion_eval;
+    html += `<div class="sethead" style="margin-top:16px">External benchmark — distortion classification</div>`;
+    html += `<table class="setsum"><tr><th style="text-align:left">Agent</th><th>micro-F1</th><th>macro-F1</th><th>gold-primary named</th></tr>`;
+    for (const a of ['bare','cbt']){
+      const v = de.agents[a];
+      html += `<tr><td class="lbl">${D.agents[a].name}</td><td class="${a==='cbt'?'ok':''}"><strong>${v.micro_f1}</strong></td><td>${v.macro_f1}</td><td>${v.primary}</td></tr>`;
+    }
+    html += `</table><p class="note" style="margin-top:6px">${de.dataset} · ${de.pilot}</p>`;
+  }
+  $('compareBody').innerHTML = html;
+  $('compareBody').querySelectorAll('button[data-open]').forEach(b => b.onclick = () => {
+    const t = D.tasks.find(x=>x.id===b.dataset.open);
+    sel = t.id; setFilter = 'all'; renderTaskList(); renderRuns();
+    document.querySelector('nav button[data-tab="runs"]').click();
+    window.scrollTo(0, 0);
+  });
+}
+
 renderTaskList();
 renderRuns();
+renderCompare();
 </script>
 </body>
 </html>

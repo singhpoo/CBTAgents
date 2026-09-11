@@ -17,7 +17,9 @@ Set B detail worth internalizing: the baseline's *deliverable* score (C9) on deb
 
 ## How to explore
 
-Open **`dashboard/index.html`** in any browser (double-click works — no server needed). Tabs:
+**Live:** https://cbt-agent-bakeoff.vercel.app (static dashboard, auto-served from `dashboard/`)
+
+Locally: open **`dashboard/index.html`** in any browser (double-click works — no server needed). Tabs:
 
 - **Overview** — verdict, agent cards, per-set summary table, per-criterion gap bars, run-by-run pass table
 - **Runs — Side by Side** — set filter (All / A / B); pick any of the 16 tasks; both full transcripts side by side, colored criterion chips, distortion names highlighted, a "Where they differ" panel with evidence quotes, and — for Set B — a **Ground truth panel** (root cause / real fix / trap / repro script) that the scoring is anchored to

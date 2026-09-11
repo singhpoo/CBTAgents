@@ -25,7 +25,28 @@ except FileNotFoundError:
     setc_predictions = {"predictions": [], "meta_prediction": ""}
 try:
     _dist = json.loads((ROOT / "results/distortion_eval.json").read_text())
-    distortion_summary = {"dataset": _dist["dataset"], "pilot": _dist["pilot"],
+    _pilot = json.loads((ROOT / "evals/distortion/pilot_items.json").read_text())
+    _outs = {a: json.loads((ROOT / f"evals/distortion/agent_outputs_{a}.json").read_text())["outputs"]
+             for a in ("bare", "cbt")}
+    _pretty = {"overgeneralization": "Overgeneralization", "arbitrary_inference": "Arbitrary inference",
+               "magnification": "Magnification", "selective_abstraction": "Selective abstraction",
+               "personalization": "Personalization", "minimization": "Minimization",
+               "all_or_nothing": "All-or-nothing", "emotional_reasoning": "Emotional reasoning",
+               "disqualifying_positive": "Disqualifying the positive", "should_statements": "Should statements",
+               "labeling": "Labeling"}
+    _det = {a: {d["id"]: d for d in _dist["agents"][a]["details"]} for a in ("bare", "cbt")}
+    _items = []
+    for it in _pilot:
+        gold = " + ".join(filter(None, [it["gold_primary"], it["gold_secondary"]]))
+        def _pred(a):
+            labels = [_pretty.get(p, p) for p in _det[a][it["id"]]["predicted"]]
+            return ", ".join(labels) if labels else "— (no distortion named)"
+        _items.append({"id": it["id"], "statement": it["statement"], "gold": gold,
+                       "pred_bare": _pred("bare"), "pred_cbt": _pred("cbt"),
+                       "hit_bare": _det["bare"][it["id"]]["primary_hit"],
+                       "hit_cbt": _det["cbt"][it["id"]]["primary_hit"],
+                       "resp_bare": _outs["bare"][it["id"]], "resp_cbt": _outs["cbt"][it["id"]]})
+    distortion_summary = {"dataset": _dist["dataset"], "pilot": _dist["pilot"], "items": _items,
                           "agents": {a: {"micro_f1": v["micro"]["f1"], "macro_f1": v["macro_f1"],
                                          "primary": v["primary_hit_rate"], "per_class_f1": v["per_class_f1"]}
                                      for a, v in _dist["agents"].items()}}

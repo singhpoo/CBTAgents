@@ -283,6 +283,8 @@ $('gapBars').innerHTML = D.criteria.map(c => {
   </div>`;
 }).join('');
 // external distortion benchmark panel
+const escH = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const escP = s => s.split(/\n\n+/).map(p => `<p>${escH(p).replace(/\n/g,'<br>')}</p>`).join('');
 if (D.distortion_eval) {
   const de = D.distortion_eval;
   const order = ['overgeneralization','arbitrary_inference','magnification','selective_abstraction','personalization','minimization'];
@@ -296,12 +298,33 @@ if (D.distortion_eval) {
     .map(c => `<tr><td class="lbl">${names[c]}</td>
       <td>${(de.agents.bare.per_class_f1[c] ?? 0).toFixed(2)}</td>
       <td><strong>${de.agents.cbt.per_class_f1[c].toFixed(2)}</strong></td></tr>`).join('');
+  const itemRows = de.items.map(it => `<tr>
+      <td class="lbl">${it.id}</td>
+      <td style="text-align:left" title="${escH(it.statement)}">${escH(it.statement.slice(0,70))}${it.statement.length>70?'…':''}</td>
+      <td class="note" style="text-align:left">${escH(it.gold)}</td>
+      <td class="note" style="text-align:left">${escH(it.pred_bare)}</td>
+      <td class="note" style="text-align:left">${escH(it.pred_cbt)}</td>
+      <td><span class="${it.hit_bare?'ok':'bad'}">${it.hit_bare?'✓':'✗'}</span> / <span class="${it.hit_cbt?'ok':'bad'}">${it.hit_cbt?'✓':'✗'}</span></td>
+    </tr>`).join('');
+  const respDetails = de.items.map(it => `
+    <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">${it.id} — full responses <span class="note">gold: ${escH(it.gold)} · primary: bare ${it.hit_bare?'✓':'✗'} / cbt ${it.hit_cbt?'✓':'✗'}</span></summary>
+      <div class="duel" style="margin-top:10px">
+        <div class="col bare"><div class="head"><span class="aname">Baseline Helper</span><span class="note">named: ${escH(it.pred_bare)}</span></div>
+          <div class="transcript">${escP(it.resp_bare)}</div></div>
+        <div class="col cbt"><div class="head"><span class="aname">CBT Agent</span><span class="note">named: ${escH(it.pred_cbt)}</span></div>
+          <div class="transcript">${escP(it.resp_cbt)}</div></div>
+      </div>
+    </details>`).join('');
   $('distortionBody').innerHTML = `
     <p class="note">${de.dataset} · ${de.pilot} · Beck↔Burns label mapping in scorer</p>
     <table class="setsum"><tr><th>Agent</th><th>micro-F1</th><th>macro-F1</th><th>gold-primary named</th></tr>${agentRows}</table>
     <p style="margin:12px 0 4px;font-weight:700;font-size:13.5px">Per-class F1 — the baseline names no distortion labels at all:</p>
     <table class="setsum"><tr><th>Class</th><th>Baseline</th><th>CBT Agent</th></tr>${classRows}</table>
-    <p class="note" style="margin-top:8px">Full per-item detail: <code>results/distortion_eval.json</code> · harness: <code>evals/distortion/</code> · analysis: <code>RESEARCH.md</code> §5</p>`;
+    <p style="margin:14px 0 4px;font-weight:700;font-size:13.5px">Per-item detail — statement, gold vs. predicted labels, primary hit (✓ bare / ✓ cbt):</p>
+    <table class="setsum"><tr><th>Item</th><th style="text-align:left">Statement</th><th style="text-align:left">Gold (primary + secondary)</th><th style="text-align:left">Baseline named</th><th style="text-align:left">CBT named</th><th>hit</th></tr>${itemRows}</table>
+    <p style="margin:14px 0 2px;font-weight:700;font-size:13.5px">Full agent responses per item:</p>
+    ${respDetails}
+    <p class="note" style="margin-top:10px">Raw scorer output: <code>results/distortion_eval.json</code> · harness: <code>evals/distortion/</code> · analysis: <code>RESEARCH.md</code> §5</p>`;
 } else {
   $('distortionCard').style.display = 'none';
 }
